@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -92,11 +92,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="livestreamer\bz2.pyd" />
-    <None Include="livestreamer\Crypto.Cipher._AES.pyd" />
     <None Include="livestreamer\futures.egg-info\not-zip-safe" />
     <None Include="livestreamer\futures.egg-info\PKG-INFO" />
-    <None Include="livestreamer\library.zip" />
     <None Include="livestreamer\librtmp\amf.pyc" />
     <None Include="livestreamer\librtmp\aval.pyc" />
     <None Include="livestreamer\librtmp\compat.pyc" />
@@ -243,7 +240,6 @@
     <None Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\utils\stream.pyc" />
     <None Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\utils\__init__.pyc" />
     <None Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\__init__.pyc" />
-    <None Include="livestreamer\pyexpat.pyd" />
     <None Include="livestreamer\requests-2.2.1-py2.7.egg\EGG-INFO\not-zip-safe" />
     <None Include="livestreamer\requests-2.2.1-py2.7.egg\EGG-INFO\PKG-INFO" />
     <None Include="livestreamer\requests-2.2.1-py2.7.egg\requests\adapters.pyc" />
@@ -319,21 +315,6 @@
     <None Include="livestreamer\requests-2.2.1-py2.7.egg\requests\structures.pyc" />
     <None Include="livestreamer\requests-2.2.1-py2.7.egg\requests\utils.pyc" />
     <None Include="livestreamer\requests-2.2.1-py2.7.egg\requests\__init__.pyc" />
-    <None Include="livestreamer\select.pyd" />
-    <None Include="livestreamer\singledispatch-3.4.0.3-py2.7.egg" />
-    <None Include="livestreamer\six.egg-info\PKG-INFO" />
-    <None Include="livestreamer\unicodedata.pyd" />
-    <None Include="livestreamer\_cffi_backend.pyd" />
-    <None Include="livestreamer\_ctypes.pyd" />
-    <None Include="livestreamer\_elementtree.pyd" />
-    <None Include="livestreamer\_hashlib.pyd" />
-    <None Include="livestreamer\_multiprocessing.pyd" />
-    <None Include="livestreamer\_socket.pyd" />
-    <None Include="livestreamer\_ssl.pyd" />
-    <None Include="MPC-HC\LAVFilters\LAVAudio.ax" />
-    <None Include="MPC-HC\LAVFilters\LAVFilters.Dependencies.manifest" />
-    <None Include="MPC-HC\LAVFilters\LAVSplitter.ax" />
-    <None Include="MPC-HC\LAVFilters\LAVVideo.ax" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -366,10 +347,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="livestreamer\bz2.pyd" />
+    <Content Include="livestreamer\Crypto.Cipher._AES.pyd" />
     <Content Include="livestreamer\futures.egg-info\dependency_links.txt" />
     <Content Include="livestreamer\futures.egg-info\installed-files.txt" />
     <Content Include="livestreamer\futures.egg-info\SOURCES.txt" />
     <Content Include="livestreamer\futures.egg-info\top_level.txt" />
+    <Content Include="livestreamer\library.zip" />
     <Content Include="livestreamer\librtmp.dll" />
     <Content Include="livestreamer\librtmp\amf.py" />
     <Content Include="livestreamer\librtmp\aval.py" />
@@ -392,14 +376,26 @@
     <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\EGG-INFO\SOURCES.txt" />
     <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\EGG-INFO\top_level.txt" />
     <Content Include="livestreamer\livestreamer.exe" />
+    <Content Include="livestreamer\pyexpat.pyd" />
     <Content Include="livestreamer\python27.dll" />
     <Content Include="livestreamer\requests-2.2.1-py2.7.egg\EGG-INFO\dependency_links.txt" />
     <Content Include="livestreamer\requests-2.2.1-py2.7.egg\EGG-INFO\SOURCES.txt" />
     <Content Include="livestreamer\requests-2.2.1-py2.7.egg\EGG-INFO\top_level.txt" />
+    <Content Include="livestreamer\select.pyd" />
+    <Content Include="livestreamer\singledispatch-3.4.0.3-py2.7.egg" />
     <Content Include="livestreamer\six.egg-info\dependency_links.txt" />
     <Content Include="livestreamer\six.egg-info\installed-files.txt" />
+    <Content Include="livestreamer\six.egg-info\PKG-INFO" />
     <Content Include="livestreamer\six.egg-info\SOURCES.txt" />
     <Content Include="livestreamer\six.egg-info\top_level.txt" />
+    <Content Include="livestreamer\unicodedata.pyd" />
+    <Content Include="livestreamer\_cffi_backend.pyd" />
+    <Content Include="livestreamer\_ctypes.pyd" />
+    <Content Include="livestreamer\_elementtree.pyd" />
+    <Content Include="livestreamer\_hashlib.pyd" />
+    <Content Include="livestreamer\_multiprocessing.pyd" />
+    <Content Include="livestreamer\_socket.pyd" />
+    <Content Include="livestreamer\_ssl.pyd" />
     <Content Include="MPC-HC\Authors.txt" />
     <Content Include="MPC-HC\Changelog.txt" />
     <Content Include="MPC-HC\COPYING.txt" />
@@ -448,6 +444,10 @@
     <Content Include="MPC-HC\LAVFilters\avresample-lav-2.dll" />
     <Content Include="MPC-HC\LAVFilters\avutil-lav-54.dll" />
     <Content Include="MPC-HC\LAVFilters\IntelQuickSyncDecoder.dll" />
+    <Content Include="MPC-HC\LAVFilters\LAVAudio.ax" />
+    <Content Include="MPC-HC\LAVFilters\LAVFilters.Dependencies.manifest" />
+    <Content Include="MPC-HC\LAVFilters\LAVSplitter.ax" />
+    <Content Include="MPC-HC\LAVFilters\LAVVideo.ax" />
     <Content Include="MPC-HC\LAVFilters\libbluray.dll" />
     <Content Include="MPC-HC\LAVFilters\swscale-lav-3.dll" />
     <Content Include="MPC-HC\mpc-hc.exe" />

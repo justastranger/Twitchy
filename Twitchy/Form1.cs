@@ -89,7 +89,7 @@ namespace Twitchy
         private void button1_Click(object sender, EventArgs e)
         {
             Process livestreamer = new Process();
-            livestreamer.StartInfo.FileName = "livestreamer\\livestreamer.exe";
+            livestreamer.StartInfo.FileName = ".\\livestreamer\\livestreamer.exe";
             if(Streamer != null){
                 livestreamer.StartInfo.Arguments = "-p MPC-HC\\mpc-hc.exe twitch.tv/" + Streamer + " best";
                 livestreamer.Start();
