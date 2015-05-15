@@ -93,8 +93,13 @@ namespace Twitchy
                     while (ps.MoveNext() && pg.MoveNext() && pt.MoveNext())
                     {
                         pg.MoveNext();
-                        string temp = ps.Current + "," + pg.Current + "," + pt.Current; // Will replace that soon with something allowing multiple columns
-                        listBox1.Items.Add(temp); // Populate the list
+                        //string temp = ps.Current + "," + pg.Current + "," + pt.Current; // Will replace that soon with something allowing multiple columns
+                        //listBox1.Items.Add(temp); // Populate the list
+                        using (DataGridViewRow row = new DataGridViewRow())
+                        {
+                            row.SetValues(new string[] { ps.Current, pg.Current, pt.Current });
+                            dataGridView1.Rows.Add(row);
+                        }
                     }
                 }
             }
@@ -106,8 +111,9 @@ namespace Twitchy
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem != null) // Event seems to fire even if you don't click an actual item, so do a null check.
-                Streamer = listBox1.SelectedItem.ToString().Split(',')[0].ToString(); // Grabs the name of the streamer, since it's always the first thing before the first comma.
+            MessageBox.Show((string)dataGridView1.CurrentRow.Cells.GetEnumerator().Current);
+            if (dataGridView1.CurrentCell != null) // Event seems to fire even if you don't click an actual item, so do a null check.
+                Streamer = (string)dataGridView1.CurrentRow.Cells.GetEnumerator().Current;// Grabs the name of the streamer, since it's always the first thing before the first comma.
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -133,6 +139,17 @@ namespace Twitchy
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {   // Siphon event to the Start Stream button's click event.
             button1_Click(sender, e);
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            button1_Click(sender, e);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (dataGridView1.CurrentCell != null)
+                
         }
     }
 }

@@ -34,6 +34,11 @@ namespace Twitchy
             this.button2 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Streamers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Games = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -84,17 +89,48 @@ namespace Twitchy
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Streamers,
+            this.Games,
+            this.Titles});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 5);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(259, 172);
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // Streamers
+            // 
+            this.Streamers.HeaderText = "Streamers";
+            this.Streamers.Name = "Streamers";
+            // 
+            // Games
+            // 
+            this.Games.HeaderText = "Games";
+            this.Games.Name = "Games";
+            // 
+            // Titles
+            // 
+            this.Titles.HeaderText = "Titles";
+            this.Titles.Name = "Titles";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,6 +142,10 @@ namespace Twitchy
         private Button button2;
         private CheckBox checkBox1;
         private ListBox listBox1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Streamers;
+        private DataGridViewTextBoxColumn Games;
+        private DataGridViewTextBoxColumn Titles;
     }
 }
 
