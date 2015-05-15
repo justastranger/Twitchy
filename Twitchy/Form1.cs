@@ -86,14 +86,15 @@ namespace Twitchy
             listBox1.Items.Clear(); // Make sure that the listbox is empty before we start thinking of actually populating it
             if (ParsedGames.Count / 2 == ParsedStreamers.Count && ParsedGames.Count / 2 == ParsedTitles.Count)
             {
-                String[] a = ParsedStreamers.ToArray(); // Temp arrays for joining in a moment.
-                String[] b = ParsedGames.ToArray();
-                String[] c = ParsedTitles.ToArray();
-
-                for (int x = 0; x < a.Length; x++)
-                {
-                    string temp = a[x] + "," + b[x] + "," + c[x]; // Will replace that soon with something allowing multiple columns
-                    listBox1.Items.Add(temp); // Populate the list
+                using(var ps = ParsedStreamers.GetEnumerator())
+                using(var pg = ParsedGames.GetEnumerator())
+                using(var pt = ParsedTitles.GetEnumerator()){
+                    while (ps.MoveNext() && pg.MoveNext() && pt.MoveNext())
+                    {
+                        pg.MoveNext();
+                        string temp = ps.Current + "," + pg.Current + "," + pt.Current; // Will replace that soon with something allowing multiple columns
+                        listBox1.Items.Add(temp); // Populate the list
+                    }
                 }
             }
             else
@@ -104,7 +105,8 @@ namespace Twitchy
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Streamer = listBox1.SelectedItem.ToString().Split(',')[0].ToString(); // Grabs the name of the streamer, since it's always the first thing before the first comma.
+            if (listBox1.SelectedItem != null)
+                Streamer = listBox1.SelectedItem.ToString().Split(',')[0].ToString(); // Grabs the name of the streamer, since it's always the first thing before the first comma.
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -120,6 +122,11 @@ namespace Twitchy
                 livestreamer.StartInfo.Arguments = "-p MPC-HC\\mpc-hc.exe twitch.tv/" + Streamer + " best";
                 livestreamer.Start();
             }
+        }
+
+        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            button1_Click(sender, e);
         }
     }
 }
