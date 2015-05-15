@@ -17,6 +17,11 @@ namespace Twitchy
     
     public partial class Form1 : Form
     {
+        //public FileStream oauth = File.Open(Application.ExecutablePath + @"\oauth", FileMode.OpenOrCreate);
+        DirectoryInfo a = Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory);
+        public FileStream oauth = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\oauth", FileMode.OpenOrCreate);
+        public string oauthToken;
+        //public string oauth = "nckhg93u1dfqqmoczk54vx5ly7w6cw";
         public Regex RegStreamers = new Regex("\"name\":\"(.*?)\",");
         public Regex RegGames = new Regex("\"game\":\"(.*?)\",");
         public Regex RegTitles = new Regex("\"status\":\"(.*?)\",");
@@ -26,7 +31,25 @@ namespace Twitchy
         public Form1()
         {
             InitializeComponent();
+            if (new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "\\oauth").Length == 0)
+            {
+                oauthToken = Twitchy.Prompt.ShowDialog("Please enter your Oauth key.", "No OAuth Saved");
+                AddText(oauth, oauthToken);
+            }
+            else
+            {
+                using( StreamReader reader = new StreamReader(oauth)){
+                    oauthToken = reader.ReadToEnd();
+                }
+            }
+            oauth.Close();
             init();
+        }
+
+        private static void AddText(FileStream fs, string value)
+        {
+            byte[] info = new UTF8Encoding(true).GetBytes(value);
+            fs.Write(info, 0, info.Length);
         }
 
         private void init()
@@ -36,7 +59,7 @@ namespace Twitchy
             List<String> ParsedTitles = new List<string>();
             listBox1.Items.Clear();
             listBox1.Items.Add("Loading...");
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token=nckhg93u1dfqqmoczk54vx5ly7w6cw");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token="+oauthToken);
             WebResponse response = request.GetResponse();
             string responseText;
             using (Stream stream = response.GetResponseStream())
