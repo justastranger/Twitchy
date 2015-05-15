@@ -29,7 +29,6 @@ namespace Twitchy
         {   // This is essentially Main() at this point.
             InitializeComponent();
             checkOauth();
-            oauth.Flush();
             oauth.Close();
             init();
         }
