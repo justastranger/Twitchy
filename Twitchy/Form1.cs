@@ -27,9 +27,9 @@ namespace Twitchy
         
         public Form1()
         {   // This is essentially Main() at this point.
+            // Split everything into smaller tasks
             InitializeComponent();
             checkOauth();
-            oauth.Close();
             init();
         }
 
@@ -47,6 +47,7 @@ namespace Twitchy
                     oauthToken = reader.ReadToEnd();
                 }
             }
+            oauth.Close();
         }
 
         private static void AddText(FileStream fs, string value)
@@ -62,7 +63,7 @@ namespace Twitchy
             List<String> ParsedTitles = new List<string>();
             listBox1.Items.Clear();
             listBox1.Items.Add("Loading...");
-                                // Ask Twitch's API nicely to see who our user is following
+                                // Ask Twitch's API nicely if we can see who our user is following
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token="+oauthToken);
             WebResponse response = request.GetResponse();
             string responseText;
@@ -105,27 +106,32 @@ namespace Twitchy
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem != null)
+            if (listBox1.SelectedItem != null) // Event seems to fire even if you don't click an actual item, so do a null check.
                 Streamer = listBox1.SelectedItem.ToString().Split(',')[0].ToString(); // Grabs the name of the streamer, since it's always the first thing before the first comma.
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
+        {   // Refresh
             init();
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {   // Start Stream
+            if (Streamer == null)
+            {
+                MessageBox.Show("Select a streamer.");
+            }
             Process livestreamer = new Process();
             livestreamer.StartInfo.FileName = ".\\livestreamer\\livestreamer.exe";
             if(Streamer != null){
                 livestreamer.StartInfo.Arguments = "-p MPC-HC\\mpc-hc.exe twitch.tv/" + Streamer + " best";
                 livestreamer.Start();
+                if (checkBox1.Checked) Environment.Exit(1);
             }
         }
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
+        {   // Siphon event to the Start Stream button's click event.
             button1_Click(sender, e);
         }
     }
