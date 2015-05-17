@@ -34,19 +34,22 @@ namespace Twitchy
 
         private static void checkOauth()
         {
-            if (new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "\\oauth").Length == 0)
+            if (oauthToken == null)
             {
-                oauthToken = Twitchy.Prompt.ShowDialog("Please enter your Oauth key.", "No OAuth Saved");
-                AddText(oauth, oauthToken);
-            }
-            else
-            {
-                using (StreamReader reader = new StreamReader(oauth))
+                if (new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "\\oauth").Length == 0)
                 {
-                    oauthToken = reader.ReadToEnd();
+                    oauthToken = Twitchy.Prompt.ShowDialog("Please enter your Oauth key.", "No OAuth Saved");
+                    AddText(oauth, oauthToken);
                 }
+                else
+                {
+                    using (StreamReader reader = new StreamReader(oauth))
+                    {
+                        oauthToken = reader.ReadToEnd();
+                    }
+                }
+                oauth.Close();
             }
-            oauth.Close();
         }
 
         private static void AddText(FileStream fs, string value)
@@ -139,7 +142,6 @@ namespace Twitchy
                     chat.Closed += new EventHandler(context.OnFormClosed);
                     chat.FormClosed += new FormClosedEventHandler(context.OnFormClosed);
                     chat.Show();
-                    //new Form2("http://www.twitch.tv/" + Streamer + "/chat").Show();
                 }
                 livestreamer.StartInfo.Arguments = "-p MPC-HC\\mpc-hc.exe twitch.tv/" + Streamer + " best";
                 livestreamer.Start();

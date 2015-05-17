@@ -22,13 +22,18 @@ namespace Twitchy
 
     public class context : ApplicationContext
     {
-        public static Form twitchy = new Form1();
+        public static Form twitchy;
         public static int formCount = 0;
 
-        public context(){
+        public static void twitcheroo(){
+            twitchy = new Form1();
             twitchy.Closed += new EventHandler(OnFormClosed);
             twitchy.FormClosed += new FormClosedEventHandler(OnFormClosed);
             twitchy.Show();
+        }
+
+        public context(){
+            twitcheroo();
         }
 
         public static void OnFormClosed(object sender, EventArgs e)

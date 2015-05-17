@@ -27,7 +27,7 @@ namespace Twitchy
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            Application.OpenForms[0].Show();
+            context.twitcheroo();
         }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
