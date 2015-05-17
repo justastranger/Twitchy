@@ -97,7 +97,8 @@ namespace Twitchy
                         //listBox1.Items.Add(temp); // Populate the list
                         using (DataGridViewRow row = new DataGridViewRow())
                         {
-                            row.SetValues(new string[] { ps.Current, pg.Current, pt.Current });
+                            //row.SetValues(new string[] { ps.Current, pg.Current, pt.Current });
+                            row.CreateCells(dataGridView1, new string[] { ps.Current, pg.Current, pt.Current });
                             dataGridView1.Rows.Add(row);
                         }
                     }
@@ -150,6 +151,11 @@ namespace Twitchy
         {
             //if (dataGridView1.CurrentCell != null)
                 
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.AutoResizeColumns();
         }
     }
 }
