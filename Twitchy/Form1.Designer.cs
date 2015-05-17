@@ -37,6 +37,7 @@ namespace Twitchy
             this.Streamers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Games = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,11 +114,23 @@ namespace Twitchy
             this.Titles.HeaderText = "Titles";
             this.Titles.Name = "Titles";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(149, 191);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(119, 17);
+            this.checkBox2.TabIndex = 5;
+            this.checkBox2.Text = "Open Chat Window";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 276);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button2);
@@ -140,6 +153,7 @@ namespace Twitchy
         private DataGridViewTextBoxColumn Streamers;
         private DataGridViewTextBoxColumn Games;
         private DataGridViewTextBoxColumn Titles;
+        private CheckBox checkBox2;
     }
 }
 

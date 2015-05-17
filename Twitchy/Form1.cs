@@ -132,6 +132,11 @@ namespace Twitchy
             Process livestreamer = new Process();
             livestreamer.StartInfo.FileName = ".\\livestreamer\\livestreamer.exe";
             if(Streamer != null){
+                if (checkBox2.Checked)
+                {
+                    //http://www.twitch.tv/{Streamer}/chat
+                    new Form2("http://www.twitch.tv/" + Streamer + "/chat").Show();
+                }
                 livestreamer.StartInfo.Arguments = "-p MPC-HC\\mpc-hc.exe twitch.tv/" + Streamer + " best";
                 livestreamer.Start();
                 if (checkBox1.Checked) Environment.Exit(1);
