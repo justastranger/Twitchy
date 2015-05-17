@@ -137,6 +137,7 @@ namespace Twitchy
                     //http://www.twitch.tv/{Streamer}/chat
                     Form chat = new Form2("http://www.twitch.tv/" + Streamer + "/chat");
                     chat.Closed += new EventHandler(context.OnFormClosed);
+                    chat.FormClosed += new FormClosedEventHandler(context.OnFormClosed);
                     chat.Show();
                     //new Form2("http://www.twitch.tv/" + Streamer + "/chat").Show();
                 }

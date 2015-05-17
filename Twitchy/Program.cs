@@ -27,6 +27,7 @@ namespace Twitchy
 
         public context(){
             twitchy.Closed += new EventHandler(OnFormClosed);
+            twitchy.FormClosed += new FormClosedEventHandler(OnFormClosed);
             twitchy.Show();
         }
 
