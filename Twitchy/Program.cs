@@ -16,9 +16,29 @@ namespace Twitchy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new context());
         }
     }
+
+    public class context : ApplicationContext
+    {
+        public static Form twitchy = new Form1();
+        public static int formCount = 0;
+
+        public context(){
+            twitchy.Closed += new EventHandler(OnFormClosed);
+            twitchy.Show();
+        }
+
+        public static void OnFormClosed(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.Count == 0)
+            {
+                Application.ExitThread();
+            }
+        }
+    }
+
 
     public static class Prompt
     {

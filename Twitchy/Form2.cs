@@ -24,5 +24,15 @@ namespace Twitchy
         {
             webBrowser1.Navigate(this.url);
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms[0].Show();
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            context.OnFormClosed(sender, e);
+        }
     }
 }

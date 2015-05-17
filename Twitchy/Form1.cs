@@ -135,11 +135,14 @@ namespace Twitchy
                 if (checkBox2.Checked)
                 {
                     //http://www.twitch.tv/{Streamer}/chat
-                    new Form2("http://www.twitch.tv/" + Streamer + "/chat").Show();
+                    Form chat = new Form2("http://www.twitch.tv/" + Streamer + "/chat");
+                    chat.Closed += new EventHandler(context.OnFormClosed);
+                    chat.Show();
+                    //new Form2("http://www.twitch.tv/" + Streamer + "/chat").Show();
                 }
                 livestreamer.StartInfo.Arguments = "-p MPC-HC\\mpc-hc.exe twitch.tv/" + Streamer + " best";
                 livestreamer.Start();
-                if (checkBox1.Checked) Environment.Exit(1);
+                if (checkBox1.Checked) this.Close();
             }
         }
 
@@ -157,6 +160,11 @@ namespace Twitchy
         private void Form1_Resize(object sender, EventArgs e)
         {
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            context.OnFormClosed(sender, e);
         }
     }
 }
