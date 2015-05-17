@@ -17,11 +17,9 @@ namespace Twitchy
     
     public partial class Form1 : Form
     {
+        // FileStream will fail and the app will crash if we don't have permissions
         public static FileStream oauth = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\oauth", FileMode.OpenOrCreate);
         public static string oauthToken;
-        public static Regex RegStreamers = new Regex("\"name\":\"(.*?)\",");
-        public static Regex RegGames = new Regex("\"game\":\"(.*?)\",");
-        public static Regex RegTitles = new Regex("\"status\":\"(.*?)\",");
 
         public String Streamer;
         
@@ -59,9 +57,14 @@ namespace Twitchy
 
         private void init()
         {
+            Regex RegStreamers = new Regex("\"name\":\"(.*?)\",");
+            Regex RegGames = new Regex("\"game\":\"(.*?)\",");
+            Regex RegTitles = new Regex("\"status\":\"(.*?)\",");
+
             List<String> ParsedStreamers = new List<string>(); // Prepare lists to store names, games, and titles.
             List<String> ParsedGames = new List<string>();
             List<String> ParsedTitles = new List<string>();
+
             dataGridView1.Rows.Clear();
                                 // Ask Twitch's API nicely if we can see who our user is following
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token="+oauthToken);
@@ -106,15 +109,13 @@ namespace Twitchy
             }
             else
             {
-                listBox1.Items.Add("Twitch API Response is malformed."); // The numbers don't match up.
+                using (DataGridViewRow a = new DataGridViewRow())
+                {
+                    a.CreateCells(dataGridView1, "Twitch API Response is malformed.");
+                    dataGridView1.Rows.Add(a);
+                }
+                //listBox1.Items.Add("Twitch API Response is malformed."); // The numbers don't match up.
             }
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show((string)dataGridView1.CurrentRow.Cells.GetEnumerator().Current);
-            if (dataGridView1.CurrentCell != null) // Event seems to fire even if you don't click an actual item, so do a null check.
-                Streamer = (string)dataGridView1.CurrentRow.Cells.GetEnumerator().Current;// Grabs the name of the streamer, since it's always the first thing before the first comma.
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -137,11 +138,6 @@ namespace Twitchy
             }
         }
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {   // Siphon event to the Start Stream button's click event.
-            button1_Click(sender, e);
-        }
-
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             button1_Click(sender, e);
@@ -150,7 +146,7 @@ namespace Twitchy
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //if (dataGridView1.CurrentCell != null)
-                
+            Streamer = (dataGridView1.CurrentRow.Cells[0].Value.ToString());
         }
 
         private void Form1_Resize(object sender, EventArgs e)
