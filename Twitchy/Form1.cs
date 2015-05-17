@@ -31,6 +31,7 @@ namespace Twitchy
             InitializeComponent();
             checkOauth();
             init();
+            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private static void checkOauth()
@@ -61,8 +62,7 @@ namespace Twitchy
             List<String> ParsedStreamers = new List<string>(); // Prepare lists to store names, games, and titles.
             List<String> ParsedGames = new List<string>();
             List<String> ParsedTitles = new List<string>();
-            listBox1.Items.Clear();
-            listBox1.Items.Add("Loading...");
+            dataGridView1.Rows.Clear();
                                 // Ask Twitch's API nicely if we can see who our user is following
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token="+oauthToken);
             WebResponse response = request.GetResponse();
@@ -84,7 +84,7 @@ namespace Twitchy
             {
                 ParsedTitles.Add(a.Groups[1].ToString());    // and lame-ass titles
             }
-            listBox1.Items.Clear(); // Make sure that the listbox is empty before we start thinking of actually populating it
+            // TODO add the ChrW nonsense for unescaping unicode characters
             if (ParsedGames.Count / 2 == ParsedStreamers.Count && ParsedGames.Count / 2 == ParsedTitles.Count)
             {
                 using(var ps = ParsedStreamers.GetEnumerator())
@@ -155,7 +155,7 @@ namespace Twitchy
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            dataGridView1.AutoResizeColumns();
+            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }
