@@ -11,6 +11,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace Twitchy
 {
@@ -58,6 +59,17 @@ namespace Twitchy
             fs.Write(info, 0, info.Length);
         }
 
+        List<string> unescape(List<string> toUnescape)
+        {
+            List<string> unescaped = new List<string>();
+            foreach (string s in toUnescape)
+            {
+                unescaped.Add(Regex.Unescape(s));
+            }
+            return unescaped;
+        }
+
+
         private void init()
         {
             Regex RegStreamers = new Regex("\"name\":\"(.*?)\",");
@@ -90,6 +102,7 @@ namespace Twitchy
             {
                 ParsedTitles.Add(a.Groups[1].ToString());    // and lame-ass titles
             }
+            ParsedTitles = unescape(ParsedTitles);
             // TODO add the ChrW nonsense for unescaping unicode characters
             if (ParsedGames.Count / 2 == ParsedStreamers.Count && ParsedGames.Count / 2 == ParsedTitles.Count)
             {
