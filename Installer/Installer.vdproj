@@ -56,6 +56,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -194,15 +202,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Twitchy"
-        "ProductCode" = "8:{B194F368-140D-436F-9E13-ADCE35F24981}"
-        "PackageCode" = "8:{E41E4438-F4B0-40D4-9945-7B1C9ACAA338}"
+        "ProductCode" = "8:{F1038C94-B4DA-4204-B390-3B3F05AD9F4D}"
+        "PackageCode" = "8:{02C0E52E-B0E4-490C-9EE5-9640E6D58442}"
         "UpgradeCode" = "8:{AF216133-F839-4D62-938A-5B33043EB21C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.1.0"
         "Manufacturer" = "8:justastranger"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
