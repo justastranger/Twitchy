@@ -189,11 +189,6 @@ namespace Twitchy
             button1_Click(sender, e);
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {   // Get the contents of the first sell in the selected row.
-            Streamer = (dataGridView1.CurrentRow.Cells[0].Value.ToString());
-        }
-
         private void Form1_Resize(object sender, EventArgs e)
         {   // Dirty hack to fit the table's elements.
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -202,6 +197,11 @@ namespace Twitchy
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {   // Event handler to make sure everything closes tidily.
             context.OnFormClosed(sender, e);
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            Streamer = (dataGridView1.CurrentRow.Cells[0].Value.ToString());
         }
     }
 }

@@ -59,5 +59,15 @@ namespace Twitchy.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon twitchy {
+            get {
+                object obj = ResourceManager.GetObject("twitchy", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
