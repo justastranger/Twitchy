@@ -111,7 +111,424 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\EGG-INFO\not-zip-safe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\EGG-INFO\PKG-INFO">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\api.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\buffers.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\cache.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\compat.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\exceptions.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\logger.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\options.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\amf.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\box.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\compat.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\error.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\f4v.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\flv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\ordereddict.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\packet.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\tag.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\types.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\util.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\flashmedia\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\pbs.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\packages\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\afreeca.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\afreecatv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\aftonbladet.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\alieztv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\ard_live.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\ard_mediathek.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\artetv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\azubutv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\bambuser.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\beattv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\chaturbate.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\common_jwplayer.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\common_swf.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\connectcast.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\crunchyroll.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\cybergame.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\dailymotion.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\disney_de.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\dmcloud.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\dmcloud_embed.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\dommune.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\douyutv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\drdk.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\euronews.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\filmon.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\filmon_us.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\furstream.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\gaminglive.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\gomexp.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\goodgame.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\hitbox.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\itvplayer.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\letontv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\livestation.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\livestream.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\media_ccc_de.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\mips.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\mlgtv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\nhkworld.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\nos.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\npo.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\nrk.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\oldlivestream.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\periscope.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\picarto.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\rtve.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\sbsdiscovery.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\seemeplay.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\speedrunslive.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\ssh101.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\stream.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\streamingvideoprovider.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\streamlive.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\svtplay.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\tga.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\tv3cat.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\tv4play.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\tvcatchup.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\tvplayer.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\twitch.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\ustreamtv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\vaughnlive.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\veetle.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\vgtv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\viagame.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\viasat.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\viasat_embed.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\wattv.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\weeb.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\youtube.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\zdf_mediathek.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugins\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugin\api\http_session.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugin\api\mapper.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugin\api\support_plugin.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugin\api\utils.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugin\api\validate.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugin\api\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugin\plugin.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\plugin\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\session.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\akamaihd.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\flvconcat.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\hds.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\hls.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\hls_playlist.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\http.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\playlist.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\rtmpdump.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\segmented.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\stream.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\streamprocess.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\wrappers.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\stream\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\utils.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\argparser.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\compat.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\console.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\constants.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\main.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\output.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\packages\shutil_backport.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\packages\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\utils\http_server.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\utils\named_pipe.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\utils\player.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\utils\progress.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\utils\stream.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\utils\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\livestreamer_cli\__init__.pyc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\Twitchy.ico" />
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\EGG-INFO\dependency_links.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\EGG-INFO\entry_points.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\EGG-INFO\requires.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\EGG-INFO\SOURCES.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="livestreamer\livestreamer-1.12.2-py2.7.egg\EGG-INFO\top_level.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="twitchy.ico" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -182,396 +599,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="livestreamer\librtmp_ffi\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\EGG-INFO\not-zip-safe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\EGG-INFO\PKG-INFO">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\api.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\buffers.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\cache.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\compat.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\exceptions.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\logger.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\options.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\amf.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\box.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\compat.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\error.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\f4v.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\flv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\ordereddict.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\packet.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\tag.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\types.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\util.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\flashmedia\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\pbs.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\packages\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\afreeca.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\afreecatv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\aftonbladet.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\alieztv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\ard_live.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\ard_mediathek.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\artetv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\azubutv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\bambuser.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\beattv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\chaturbate.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\common_jwplayer.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\common_swf.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\connectcast.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\crunchyroll.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\cybergame.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\dailymotion.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\disney_de.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\dmcloud.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\dmcloud_embed.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\dommune.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\douyutv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\drdk.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\euronews.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\filmon.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\filmon_us.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\furstream.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\gaminglive.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\gomexp.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\goodgame.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\hitbox.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\itvplayer.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\letontv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\livestation.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\livestream.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\mips.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\mlgtv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\nhkworld.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\nos.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\npo.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\nrk.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\oldlivestream.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\picarto.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\rtve.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\seemeplay.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\speedrunslive.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\stream.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\streamingvideoprovider.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\streamlive.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\svtplay.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\tga.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\tv3cat.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\tv4play.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\tvcatchup.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\tvplayer.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\twitch.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\ustreamtv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\vaughnlive.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\veetle.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\vgtv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\viagame.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\viasat.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\viasat_embed.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\wattv.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\weeb.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\youtube.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\zdf_mediathek.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugins\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugin\api\http_session.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugin\api\mapper.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugin\api\support_plugin.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugin\api\utils.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugin\api\validate.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugin\api\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugin\plugin.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\plugin\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\session.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\akamaihd.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\flvconcat.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\hds.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\hls.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\hls_playlist.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\http.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\playlist.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\rtmpdump.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\segmented.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\stream.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\streamprocess.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\wrappers.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\stream\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\utils.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\argparser.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\compat.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\console.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\constants.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\main.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\output.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\packages\shutil_backport.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\packages\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\utils\http_server.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\utils\named_pipe.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\utils\player.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\utils\progress.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\utils\stream.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\utils\__init__.pyc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\livestreamer_cli\__init__.pyc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="livestreamer\requests-2.2.1-py2.7.egg\EGG-INFO\not-zip-safe">
@@ -899,21 +926,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="livestreamer\librtmp_ffi\__init__.py">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\EGG-INFO\dependency_links.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\EGG-INFO\entry_points.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\EGG-INFO\requires.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\EGG-INFO\SOURCES.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="livestreamer\livestreamer-1.12.1-py2.7.egg\EGG-INFO\top_level.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="livestreamer\livestreamer.exe">
