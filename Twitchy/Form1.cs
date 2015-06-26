@@ -30,7 +30,6 @@ namespace Twitchy
             // Split everything into smaller tasks
             InitializeComponent();
             init();
-            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private static void checkOauth()
@@ -151,15 +150,44 @@ namespace Twitchy
                         dataGridView1.Rows.Add(a);
                     }
                 }
+                else
+                {
+                    using (DataGridViewRow a = new DataGridViewRow())
+                    {   // Complain about the invalid OAuth token.
+                        a.CreateCells(dataGridView1, new string[] { "Connection Issue: "+e.Status, "Twitch couldn't be reached,", "Check your connection and check to see if Twitch is up." });
+                        dataGridView1.Rows.Add(a);
+                    }
+                }
             }
-            
-            
-            
+        }
+
+        private void autoSize()
+        {
+            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+            int cWidth = dataGridView1.RowHeadersWidth;
+            foreach (DataGridViewColumn dgvc in dataGridView1.Columns)
+            {
+                cWidth += dgvc.Width;
+            }
+            cWidth += 45; // Magic number, it's approximately the original difference in size
+                          // between dataGridView1 and the main form, 300-256, rounded up to the nearest fifth pixel.
+            context.twitchy.Width = cWidth;
+
+            int rHeight = dataGridView1.ColumnHeadersHeight;
+            foreach (DataGridViewRow dgvr in dataGridView1.Rows)
+            {
+                rHeight += dgvr.Height;
+            }
+            rHeight += 145; // Another magic number, approximately the original difference between
+                            // the original size of dataGridView1 and the main form, 315-173, rounded up to the nearest fifth pixel.
+            context.twitchy.Height = rHeight;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {   // Refresh
             init();
+            autoSize();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -191,7 +219,8 @@ namespace Twitchy
 
         private void Form1_Resize(object sender, EventArgs e)
         {   // Dirty hack to fit the table's elements.
-            dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            // Shouldn't be needed anymore, since it works in Form1_Shown
+            // autoSize();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -202,6 +231,11 @@ namespace Twitchy
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             Streamer = (dataGridView1.CurrentRow.Cells[0].Value.ToString());
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {   // This works, for some reason.
+            autoSize();
         }
     }
 }
