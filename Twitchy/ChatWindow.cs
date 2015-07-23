@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Twitchy
 {
-    public partial class Form2 : Form
+    public partial class ChatWindow : Form
     {
         private string url;
 
-        public Form2(string url)
+        public ChatWindow(string url)
         {
             this.url = url;
             InitializeComponent();

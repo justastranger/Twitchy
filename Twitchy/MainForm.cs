@@ -12,20 +12,22 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Diagnostics;
 using System.Globalization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Twitchy
 {
     
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         // FileStream will fail and the app will crash if we don't have permissions
-        public static FileStream oauth = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\oauth", FileMode.OpenOrCreate);
-        public static string oauthToken;
-        public static bool valid = true;
+        private static FileStream oauth = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\oauth", FileMode.OpenOrCreate);
+        private static string oauthToken;
+        private static bool valid = true;
 
-        public String Streamer;
+        private String Streamer;
         
-        public Form1()
+        public MainForm()
         {   // This is essentially Main() at this point.
             // Split everything into smaller tasks
             InitializeComponent();
@@ -65,7 +67,7 @@ namespace Twitchy
             fs.Write(info, 0, info.Length);
         }
 
-        List<string> unescape(List<string> toUnescape)
+        private static List<string> unescape(List<string> toUnescape)
         {
             List<string> unescaped = new List<string>();
             foreach (string s in toUnescape)
@@ -75,22 +77,23 @@ namespace Twitchy
             return unescaped;
         }
 
+        private static string unescape(string toUnescape)
+        {
+            return Regex.Unescape(toUnescape);
+        }
+
 
         private void init() 
         {
             checkOauth();
-            Regex RegStreamers = new Regex("\"name\":\"(.*?)\",");
-            Regex RegGames = new Regex("\"game\":\"(.*?)\",");
-            Regex RegTitles = new Regex("\"status\":\"(.*?)\",");
 
-            List<String> ParsedStreamers = new List<string>(); // Prepare lists to store names, games, and titles.
-            List<String> ParsedGames = new List<string>();
-            List<String> ParsedTitles = new List<string>();
+            List<StreamObject> ParsedStreams = new List<StreamObject>();
 
             dataGridView1.Rows.Clear();
                                 // Ask Twitch's API nicely if we can see who our user is following
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token="+oauthToken);
-            
+            JObject jo;
+
             try {
                 string responseText;
                 WebResponse response = request.GetResponse();
@@ -98,45 +101,30 @@ namespace Twitchy
                 {   // Convert Twitch's response into a string.
                    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
                    responseText = reader.ReadToEnd();
+                   jo = JsonConvert.DeserializeObject<JObject>(responseText);
                 }
-                foreach (Match a in RegStreamers.Matches(responseText.ToString()))
+                JArray streams = (JArray)jo["streams"];
+                foreach (JObject o in streams)
                 {
-                    ParsedStreamers.Add(a.Groups[1].ToString()); // regex the response looking for and populating the lists with streamer names
+                    StreamObject so = new StreamObject(o["channel"]["display_name"].ToString(),
+                                                        o["game"].ToString(),
+                                                        unescape(o["channel"]["status"].ToString()));
+                    ParsedStreams.Add(so);
                 }
-                foreach (Match a in RegGames.Matches(responseText.ToString()))
+
+                using (var ps = ParsedStreams.GetEnumerator())
                 {
-                    ParsedGames.Add(a.Groups[1].ToString());     // Games
-                }
-                foreach (Match a in RegTitles.Matches(responseText.ToString()))
-                {
-                    ParsedTitles.Add(a.Groups[1].ToString());    // and lame-ass titles
-                }
-                ParsedTitles = unescape(ParsedTitles);  // Unescaoe the titles so you can see the fancy unicode stuff people come up with.
-                if (ParsedGames.Count / 2 == ParsedStreamers.Count && ParsedGames.Count / 2 == ParsedTitles.Count)
-                {
-                    using (var ps = ParsedStreamers.GetEnumerator())
-                    using (var pg = ParsedGames.GetEnumerator())
-                    using (var pt = ParsedTitles.GetEnumerator())
+                    while (ps.MoveNext())
                     {
-                        while (ps.MoveNext() && pg.MoveNext() && pt.MoveNext())
-                        {   // Skip ever other game name, since I can't be arsed to deduplicate.
-                            pg.MoveNext();
-                            using (DataGridViewRow row = new DataGridViewRow())
-                            {   // Populate the DataGridView.
-                                row.CreateCells(dataGridView1, new string[] { ps.Current, pg.Current, pt.Current });
-                                dataGridView1.Rows.Add(row);
-                            }
+                        using (DataGridViewRow row = new DataGridViewRow())
+                        {   // Populate the DataGridView.
+                            StreamObject temp = ps.Current;
+                            row.CreateCells(dataGridView1, new string[] { temp.name, temp.game, temp.title });
+                            dataGridView1.Rows.Add(row);
                         }
                     }
                 }
-                else
-                {
-                    using (DataGridViewRow a = new DataGridViewRow())
-                    {   // Complain about Twitch's api response not being constant
-                        a.CreateCells(dataGridView1, "Twitch API Response is malformed.");
-                        dataGridView1.Rows.Add(a);
-                    }
-                }
+                
                 valid = true;
             }
             catch (WebException e)
@@ -153,7 +141,7 @@ namespace Twitchy
                 else
                 {
                     using (DataGridViewRow a = new DataGridViewRow())
-                    {   // Complain about the invalid OAuth token.
+                    {   // Complain about the lack of internet
                         a.CreateCells(dataGridView1, new string[] { "Connection Issue: "+e.Status, "Twitch couldn't be reached,", "Check your connection and check to see if Twitch is up." });
                         dataGridView1.Rows.Add(a);
                     }
@@ -202,7 +190,7 @@ namespace Twitchy
             if (checkBox2.Checked)
             {
                 //http://www.twitch.tv/{Streamer}/chat
-                Form chat = new Form2("http://www.twitch.tv/" + Streamer + "/chat");
+                Form chat = new ChatWindow("http://www.twitch.tv/" + Streamer + "/chat");
                 chat.Closed += new EventHandler(context.OnFormClosed); // Add event handlers so that everything closes tidily
                 chat.FormClosed += new FormClosedEventHandler(context.OnFormClosed);
                 chat.Show();
