@@ -20,8 +20,10 @@ namespace Twitchy
     
     public partial class MainForm : Form
     {
+        private static char slash = System.IO.Path.DirectorySeparatorChar;
+        private static string oauthPath = AppDomain.CurrentDomain.BaseDirectory + slash + "oauth";
         // FileStream will fail and the app will crash if we don't have permissions
-        private static FileStream oauth = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\oauth", FileMode.OpenOrCreate);
+        private static FileStream oauth = File.Open(oauthPath, FileMode.OpenOrCreate);
         private static string oauthToken;
         private static bool valid = true;
 
@@ -39,13 +41,13 @@ namespace Twitchy
             if (!valid)
             {
                 oauth.Close();
-                oauth = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\oauth", FileMode.Create);
+                oauth = File.Open(oauthPath, FileMode.Create);
                 oauthToken = null;
             }
 
             if (oauthToken == null)
             {
-                if (new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "\\oauth").Length == 0)
+                if (new FileInfo(oauthPath).Length == 0)
                 {
                     oauthToken = Twitchy.Prompt.ShowDialog(@"Please enter your Oauth key, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
                     AddText(oauth, oauthToken);
@@ -86,10 +88,9 @@ namespace Twitchy
         private void init() 
         {
             checkOauth();
+            dataGridView1.Rows.Clear();
 
             List<StreamObject> ParsedStreams = new List<StreamObject>();
-
-            dataGridView1.Rows.Clear();
                                 // Ask Twitch's API nicely if we can see who our user is following
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token="+oauthToken);
             JObject jo;
@@ -98,7 +99,7 @@ namespace Twitchy
                 string responseText;
                 WebResponse response = request.GetResponse();
                 using (Stream stream = response.GetResponseStream())
-                {   // Convert Twitch's response into a string.
+                {   // Convert Twitch's response into a string and then into a JObject that we can play with
                    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
                    responseText = reader.ReadToEnd();
                    jo = JsonConvert.DeserializeObject<JObject>(responseText);
@@ -147,6 +148,14 @@ namespace Twitchy
                     }
                 }
             }
+            catch (Exception e)
+            {
+                using (DataGridViewRow a = new DataGridViewRow())
+                {   // Complain about the lack of internet
+                    a.CreateCells(dataGridView1, new string[] { "There was a problem",  e.Message, "Pressing Refresh some more will probably fix it." });
+                    dataGridView1.Rows.Add(a);
+                }
+            }
         }
 
         private void autoSize()
@@ -185,19 +194,18 @@ namespace Twitchy
                 MessageBox.Show("Select a streamer.");
                 return;
             }
+
             Process livestreamer = new Process();
-            livestreamer.StartInfo.FileName = @".\livestreamer\livestreamer.exe";
-            if (checkBox2.Checked)
-            {
-                //http://www.twitch.tv/{Streamer}/chat
-                Form chat = new ChatWindow("http://www.twitch.tv/" + Streamer + "/chat");
-                chat.Closed += new EventHandler(context.OnFormClosed); // Add event handlers so that everything closes tidily
-                chat.FormClosed += new FormClosedEventHandler(context.OnFormClosed);
-                chat.Show();
+            if (Config.usePath) { // Either use whatever is in PATH or use the packaged versions, might help with *nix compat
+                livestreamer.StartInfo.FileName = "livestreamer";
+                livestreamer.StartInfo.Arguments = "twitch.tv/" + Streamer + " best";
+            } else {
+                livestreamer.StartInfo.FileName = "." + slash + "ls" + slash + "livestreamer.exe";
+                livestreamer.StartInfo.Arguments = "-p MPC-HC" + slash + "mpc-hc.exe twitch.tv/" + Streamer + " best";
             }
-            livestreamer.StartInfo.Arguments = @"-p MPC-HC\mpc-hc.exe twitch.tv/" + Streamer + " best";
             livestreamer.Start();
-            if (checkBox1.Checked) this.Close();
+            if (Config.openChatWindow) ChatWindow.ShowChat(Streamer);
+            if (Config.closeAfterLaunch) this.Close();
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -224,6 +232,12 @@ namespace Twitchy
         private void Form1_Shown(object sender, EventArgs e)
         {   // This works, for some reason.
             autoSize();
+        }
+
+        private void Config_Click(object sender, EventArgs e)
+        {
+            Form conf = new Config();
+            conf.Show();
         }
     }
 }

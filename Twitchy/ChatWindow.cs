@@ -7,6 +7,14 @@ namespace Twitchy
     {
         private string url;
 
+        public static void ShowChat(string url){
+            //http://www.twitch.tv/{Streamer}/chat
+            Form chat = new ChatWindow("http://www.twitch.tv/" + url + "/chat");
+            chat.Closed += new EventHandler(context.OnFormClosed); // Add event handlers so that everything closes tidily
+            chat.FormClosed += new FormClosedEventHandler(context.OnFormClosed);
+            chat.Show();
+        }
+
         public ChatWindow(string url)
         {
             this.url = url;
