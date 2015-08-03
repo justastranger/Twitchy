@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Config));
             this.closeAfterLaunchCheckBox = new System.Windows.Forms.CheckBox();
             this.openChatWindowCheckBox = new System.Windows.Forms.CheckBox();
             this.usePathCheckBox = new System.Windows.Forms.CheckBox();
             this.Save = new System.Windows.Forms.Button();
+            this.usePathToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // closeAfterLaunchCheckBox
@@ -67,6 +69,8 @@
             this.usePathCheckBox.Text = "Use PATH defaults";
             this.usePathCheckBox.UseVisualStyleBackColor = true;
             this.usePathCheckBox.CheckedChanged += new System.EventHandler(this.usePathCheckBox_CheckedChanged);
+            this.usePathToolTip.SetToolTip(this.usePathCheckBox, 
+                    @"Check this to use a pre-installed copy of livestreamer and a compatible video player.");
             // 
             // Save
             // 
@@ -101,5 +105,6 @@
         private System.Windows.Forms.CheckBox openChatWindowCheckBox;
         private System.Windows.Forms.CheckBox usePathCheckBox;
         private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.ToolTip usePathToolTip;
     }
 }
