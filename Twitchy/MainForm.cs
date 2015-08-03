@@ -33,11 +33,6 @@ namespace Twitchy
             init();
         }
 
-        private static void AddText(FileStream fs, string value)
-        {   // Stole this from StackOverflow somewhere, google it for credits.
-            byte[] info = new UTF8Encoding(true).GetBytes(value);
-            fs.Write(info, 0, info.Length);
-        }
 
         private static List<string> unescape(List<string> toUnescape)
         {
@@ -79,7 +74,7 @@ namespace Twitchy
                 {
                     StreamObject so = new StreamObject(o["channel"]["display_name"].ToString(),
                                                         o["game"].ToString(),
-                                                        o["channel"]["status"].ToString() != null ? unescape(o["channel"]["status"].ToString()) : o["channel"]["display_name"].ToString() + "'s Stream");
+                                                        o["channel"]["status"] != null ? unescape(o["channel"]["status"].ToString()) : o["channel"]["display_name"].ToString() + "'s Stream");
                     ParsedStreams.Add(so);
                 }
 

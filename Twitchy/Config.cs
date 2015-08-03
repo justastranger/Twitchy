@@ -20,11 +20,11 @@ namespace Twitchy
         private static FileStream configFile = File.Open(configPath, FileMode.OpenOrCreate);
         private static JObject config = new JObject();
 
+        //private static string oauthPath = AppDomain.CurrentDomain.BaseDirectory + slash + "oauth";
+        // FileStream will fail and the app will crash if we don't have permissions
+        //private static FileStream oauth = File.Open(oauthPath, FileMode.OpenOrCreate);
         public static string oauthToken;
         public static bool valid = true;
-        private static string oauthPath = AppDomain.CurrentDomain.BaseDirectory + slash + "oauth";
-        // FileStream will fail and the app will crash if we don't have permissions
-        private static FileStream oauth = File.Open(oauthPath, FileMode.OpenOrCreate);
 
         public static bool closeAfterLaunch = false;
         public static bool openChatWindow = false;
@@ -39,6 +39,8 @@ namespace Twitchy
                     config["closeAfterLaunch"] = closeAfterLaunch;
                     config["openChatWindow"] = openChatWindow;
                     config["usePath"] = usePath;
+                    checkOauth();
+                    config["oauth"] = oauthToken;
                     sw.Write(config.ToString(Formatting.Indented));
                 }
             }
@@ -47,6 +49,7 @@ namespace Twitchy
                 using (StreamReader sr = new StreamReader(configFile))
                 {
                     config = JObject.Parse(sr.ReadToEnd());
+                    oauthToken = config["oauth"].ToObject<string>();
                     closeAfterLaunch = config["closeAfterLaunch"].ToObject<bool>();
                     openChatWindow = config["openChatWindow"].ToObject<bool>();
                     usePath = config["usePath"].ToObject<bool>();
@@ -58,6 +61,7 @@ namespace Twitchy
         {
             this.FormClosed += new FormClosedEventHandler(context.OnFormClosed);
             this.Closed += new EventHandler(context.OnFormClosed);
+            this.Closed += new EventHandler(Save_Click);
             InitializeComponent();
 
             closeAfterLaunchCheckBox.Checked = closeAfterLaunch;
@@ -66,30 +70,20 @@ namespace Twitchy
 
         }
 
+        private static void AddText(FileStream fs, string value)
+        {   // Stole this from StackOverflow somewhere, google it for credits.
+            byte[] info = new UTF8Encoding(true).GetBytes(value);
+            fs.Write(info, 0, info.Length);
+        }
+
         public static void checkOauth()
         {
-            if (!valid)
-            {
-                oauth.Close();
-                oauth = File.Open(oauthPath, FileMode.Create);
-                oauthToken = null;
-            }
+            if (!valid) oauthToken = null;
 
             if (oauthToken == null)
             {
-                if (new FileInfo(oauthPath).Length == 0)
-                {
-                    oauthToken = Twitchy.Prompt.ShowDialog(@"Please enter your Oauth key, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
-                    AddText(oauth, oauthToken);
-                }
-                else
-                {
-                    using (StreamReader reader = new StreamReader(oauth))
-                    {
-                        oauthToken = reader.ReadToEnd();
-                    }
-                }
-                oauth.Close();
+                oauthToken = Twitchy.Prompt.ShowDialog(@"Please enter your Oauth key, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
+                config["oauth"] = oauthToken;
             }
         }
 
@@ -118,7 +112,7 @@ namespace Twitchy
             {
                 sw.Write(config.ToString());
             }
-            this.Close();
+            if (sender != this) { this.Close(); }
         }
     }
 }
