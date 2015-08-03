@@ -35,19 +35,19 @@ namespace Twitchy
             if (configFile.Length == 0)
             {
                 using (StreamWriter sw = new StreamWriter(configFile))
-                {
+                {   // Prepare our JObject to be saved
                     config["closeAfterLaunch"] = closeAfterLaunch;
                     config["openChatWindow"] = openChatWindow;
                     config["usePath"] = usePath;
-                    checkOauth();
+                    checkOauth(); // Make sure we have an OAuth token before we try to save it
                     config["oauth"] = oauthToken;
-                    sw.Write(config.ToString(Formatting.Indented));
+                    sw.Write(config.ToString(Formatting.Indented)); // Actually save it
                 }
             }
             else
             {
                 using (StreamReader sr = new StreamReader(configFile))
-                {
+                {   // Read an existing config file
                     config = JObject.Parse(sr.ReadToEnd());
                     oauthToken = config["oauth"].ToObject<string>();
                     closeAfterLaunch = config["closeAfterLaunch"].ToObject<bool>();
