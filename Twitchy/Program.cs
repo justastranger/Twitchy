@@ -27,8 +27,6 @@ namespace Twitchy
 
         public static void twitcheroo(){
             twitchy = new MainForm();
-            twitchy.Closed += new EventHandler(OnFormClosed);
-            twitchy.FormClosed += new FormClosedEventHandler(OnFormClosed);
             twitchy.Show();
         }
 

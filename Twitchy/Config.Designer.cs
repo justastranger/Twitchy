@@ -32,6 +32,7 @@
             this.closeAfterLaunchCheckBox = new System.Windows.Forms.CheckBox();
             this.openChatWindowCheckBox = new System.Windows.Forms.CheckBox();
             this.usePathCheckBox = new System.Windows.Forms.CheckBox();
+            this.Save = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // closeAfterLaunchCheckBox
@@ -67,11 +68,22 @@
             this.usePathCheckBox.UseVisualStyleBackColor = true;
             this.usePathCheckBox.CheckedChanged += new System.EventHandler(this.usePathCheckBox_CheckedChanged);
             // 
+            // Save
+            // 
+            this.Save.Location = new System.Drawing.Point(188, 211);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(84, 38);
+            this.Save.TabIndex = 3;
+            this.Save.Text = "Save";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.Save);
             this.Controls.Add(this.usePathCheckBox);
             this.Controls.Add(this.openChatWindowCheckBox);
             this.Controls.Add(this.closeAfterLaunchCheckBox);
@@ -88,5 +100,6 @@
         private System.Windows.Forms.CheckBox closeAfterLaunchCheckBox;
         private System.Windows.Forms.CheckBox openChatWindowCheckBox;
         private System.Windows.Forms.CheckBox usePathCheckBox;
+        private System.Windows.Forms.Button Save;
     }
 }

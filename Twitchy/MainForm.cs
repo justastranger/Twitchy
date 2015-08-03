@@ -32,6 +32,8 @@ namespace Twitchy
         public MainForm()
         {   // This is essentially Main() at this point.
             // Split everything into smaller tasks
+            this.FormClosed += new FormClosedEventHandler(context.OnFormClosed);
+            this.Closed += new EventHandler(context.OnFormClosed);
             InitializeComponent();
             init();
         }
@@ -109,7 +111,7 @@ namespace Twitchy
                 {
                     StreamObject so = new StreamObject(o["channel"]["display_name"].ToString(),
                                                         o["game"].ToString(),
-                                                        unescape(o["channel"]["status"].ToString()));
+                                                        o["channel"]["status"].ToString() != null ? unescape(o["channel"]["status"].ToString()) : o["channel"]["display_name"].ToString() + "'s Stream");
                     ParsedStreams.Add(so);
                 }
 
@@ -152,7 +154,7 @@ namespace Twitchy
             {
                 using (DataGridViewRow a = new DataGridViewRow())
                 {   // Complain about the lack of internet
-                    a.CreateCells(dataGridView1, new string[] { "There was a problem",  e.Message, "Pressing Refresh some more will probably fix it." });
+                    a.CreateCells(dataGridView1, new string[] { "There was a problem", e.Message, "Pressing Refresh some more will probably fix it." });
                     dataGridView1.Rows.Add(a);
                 }
             }
