@@ -21,11 +21,6 @@ namespace Twitchy
     public partial class MainForm : Form
     {
         private static char slash = System.IO.Path.DirectorySeparatorChar;
-        private static string oauthPath = AppDomain.CurrentDomain.BaseDirectory + slash + "oauth";
-        // FileStream will fail and the app will crash if we don't have permissions
-        private static FileStream oauth = File.Open(oauthPath, FileMode.OpenOrCreate);
-        private static string oauthToken;
-        private static bool valid = true;
 
         private String Streamer;
         
@@ -36,33 +31,6 @@ namespace Twitchy
             this.Closed += new EventHandler(context.OnFormClosed);
             InitializeComponent();
             init();
-        }
-
-        private static void checkOauth()
-        {
-            if (!valid)
-            {
-                oauth.Close();
-                oauth = File.Open(oauthPath, FileMode.Create);
-                oauthToken = null;
-            }
-
-            if (oauthToken == null)
-            {
-                if (new FileInfo(oauthPath).Length == 0)
-                {
-                    oauthToken = Twitchy.Prompt.ShowDialog(@"Please enter your Oauth key, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
-                    AddText(oauth, oauthToken);
-                }
-                else
-                {
-                    using (StreamReader reader = new StreamReader(oauth))
-                    {
-                        oauthToken = reader.ReadToEnd();
-                    }
-                }
-                oauth.Close();
-            }
         }
 
         private static void AddText(FileStream fs, string value)
@@ -89,12 +57,12 @@ namespace Twitchy
 
         private void init() 
         {
-            checkOauth();
+            Config.checkOauth();
             dataGridView1.Rows.Clear();
 
             List<StreamObject> ParsedStreams = new List<StreamObject>();
                                 // Ask Twitch's API nicely if we can see who our user is following
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token="+oauthToken);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token="+Config.oauthToken);
             JObject jo;
 
             try {
@@ -128,13 +96,13 @@ namespace Twitchy
                     }
                 }
                 
-                valid = true;
+                Config.valid = true;
             }
             catch (WebException e)
             {
                 if (e.Message.Contains("401"))
                 {
-                    valid = false;
+                    Config.valid = false;
                     using (DataGridViewRow a = new DataGridViewRow())
                     {   // Complain about the invalid OAuth token.
                         a.CreateCells(dataGridView1, new string[] { "Invalid OAuth Token.", "Please press refresh."});

@@ -20,6 +20,12 @@ namespace Twitchy
         private static FileStream configFile = File.Open(configPath, FileMode.OpenOrCreate);
         private static JObject config = new JObject();
 
+        public static string oauthToken;
+        public static bool valid = true;
+        private static string oauthPath = AppDomain.CurrentDomain.BaseDirectory + slash + "oauth";
+        // FileStream will fail and the app will crash if we don't have permissions
+        private static FileStream oauth = File.Open(oauthPath, FileMode.OpenOrCreate);
+
         public static bool closeAfterLaunch = false;
         public static bool openChatWindow = false;
         public static bool usePath = false;
@@ -58,6 +64,33 @@ namespace Twitchy
             openChatWindowCheckBox.Checked = openChatWindow;
             usePathCheckBox.Checked = usePath;
 
+        }
+
+        public static void checkOauth()
+        {
+            if (!valid)
+            {
+                oauth.Close();
+                oauth = File.Open(oauthPath, FileMode.Create);
+                oauthToken = null;
+            }
+
+            if (oauthToken == null)
+            {
+                if (new FileInfo(oauthPath).Length == 0)
+                {
+                    oauthToken = Twitchy.Prompt.ShowDialog(@"Please enter your Oauth key, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
+                    AddText(oauth, oauthToken);
+                }
+                else
+                {
+                    using (StreamReader reader = new StreamReader(oauth))
+                    {
+                        oauthToken = reader.ReadToEnd();
+                    }
+                }
+                oauth.Close();
+            }
         }
 
         private void closeAfterLaunchCheckBox_CheckedChanged(object sender, EventArgs e)
