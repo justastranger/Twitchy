@@ -130,7 +130,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v2.0"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.5"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=395269"
                 }
@@ -145,11 +145,6 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2EBE4062C0B1AE3D20304E5A813FFEE5"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
@@ -246,7 +241,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Twitchy"
         "ProductCode" = "8:{22126053-D764-465B-A674-5B096699CE1F}"
-        "PackageCode" = "8:{7F0D4C16-9567-43F5-AE93-338C3FB6984C}"
+        "PackageCode" = "8:{D247A8A8-6F1A-4263-ACA8-E9E5CE64CE34}"
         "UpgradeCode" = "8:{AF216133-F839-4D62-938A-5B33043EB21C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -781,7 +776,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B348F9F9D60241379C5B47D22A9D48A3"
             {
-            "SourcePath" = "8:..\\Twitchy\\obj\\Release\\Twitchy.exe"
+            "SourcePath" = "8:..\\Twitchy\\obj\\Debug\\Twitchy.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B643E2D8C25B4BFDBDE6B1D055EE6F83"
