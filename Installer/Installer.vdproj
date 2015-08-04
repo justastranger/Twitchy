@@ -240,15 +240,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Twitchy"
-        "ProductCode" = "8:{8CF768A3-7582-4810-9935-38A95B352D53}"
-        "PackageCode" = "8:{B7486F08-9E57-4737-A182-E7428E59E5DD}"
+        "ProductCode" = "8:{22126053-D764-465B-A674-5B096699CE1F}"
+        "PackageCode" = "8:{D247A8A8-6F1A-4263-ACA8-E9E5CE64CE34}"
         "UpgradeCode" = "8:{AF216133-F839-4D62-938A-5B33043EB21C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:2.1.0"
+        "ProductVersion" = "8:2.2.0"
         "Manufacturer" = "8:justastranger"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -776,7 +776,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B348F9F9D60241379C5B47D22A9D48A3"
             {
-            "SourcePath" = "8:..\\Twitchy\\obj\\Release\\Twitchy.exe"
+            "SourcePath" = "8:..\\Twitchy\\obj\\Debug\\Twitchy.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B643E2D8C25B4BFDBDE6B1D055EE6F83"
