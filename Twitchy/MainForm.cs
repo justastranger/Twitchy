@@ -71,13 +71,19 @@ namespace Twitchy
                 }
                 JArray streams = (JArray)jo["streams"];
                 foreach (JObject o in streams)
-                {
+                {                           // If null, assign to the first option
+                    string title = o["channel"]["status"] == null ? o["channel"]["display_name"].ToString() + "'s Stream"
+                                            // Otherwise, check if title unescaping is enabled, if so use the unescaped title
+                                        : Config.disableTitleUnescaping ? o["channel"]["status"].ToString() 
+                                            // Finally, if all else fails, use the unescaped title
+                                        : unescape(o["channel"]["status"].ToString()) ;
                     StreamObject so = new StreamObject(o["channel"]["display_name"].ToString(),
                                                         o["game"].ToString(),
-                                                        o["channel"]["status"] != null ? unescape(o["channel"]["status"].ToString()) : o["channel"]["display_name"].ToString() + "'s Stream");
+                                                        title
+                                                       );
                     ParsedStreams.Add(so);
                 }
-
+                // TODO combine above and below
                 using (var ps = ParsedStreams.GetEnumerator())
                 {
                     while (ps.MoveNext())
@@ -111,6 +117,14 @@ namespace Twitchy
                         a.CreateCells(dataGridView1, new string[] { "Connection Issue: "+e.Status, "Twitch couldn't be reached,", "Check your connection and check to see if Twitch is up." });
                         dataGridView1.Rows.Add(a);
                     }
+                }
+            }
+            catch (ArgumentException e)
+            {
+                using (DataGridViewRow a = new DataGridViewRow())
+                {   // Complain about the lack of internet
+                    a.CreateCells(dataGridView1, new string[] { "Someone is doing something", "interesting with their title.", "Disable unescaping in the config and refresh to resolve this problem." });
+                    dataGridView1.Rows.Add(a);
                 }
             }
             catch (Exception e)

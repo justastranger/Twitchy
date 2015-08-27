@@ -35,6 +35,7 @@
             this.usePathCheckBox = new System.Windows.Forms.CheckBox();
             this.Save = new System.Windows.Forms.Button();
             this.usePathToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.disableTitleUnescapingCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // closeAfterLaunchCheckBox
@@ -67,10 +68,10 @@
             this.usePathCheckBox.Size = new System.Drawing.Size(117, 17);
             this.usePathCheckBox.TabIndex = 2;
             this.usePathCheckBox.Text = "Use PATH defaults";
+            this.usePathToolTip.SetToolTip(this.usePathCheckBox, "Check this to use a pre-installed copy of livestreamer and a compatible video pla" +
+        "yer.");
             this.usePathCheckBox.UseVisualStyleBackColor = true;
             this.usePathCheckBox.CheckedChanged += new System.EventHandler(this.usePathCheckBox_CheckedChanged);
-            this.usePathToolTip.SetToolTip(this.usePathCheckBox, 
-                    @"Check this to use a pre-installed copy of livestreamer and a compatible video player.");
             // 
             // Save
             // 
@@ -82,11 +83,23 @@
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
+            // disableTitleUnescapingCheckbox
+            // 
+            this.disableTitleUnescapingCheckbox.AutoSize = true;
+            this.disableTitleUnescapingCheckbox.Location = new System.Drawing.Point(12, 81);
+            this.disableTitleUnescapingCheckbox.Name = "disableTitleUnescapingCheckbox";
+            this.disableTitleUnescapingCheckbox.Size = new System.Drawing.Size(144, 17);
+            this.disableTitleUnescapingCheckbox.TabIndex = 4;
+            this.disableTitleUnescapingCheckbox.Text = "Disable Title Unescaping";
+            this.disableTitleUnescapingCheckbox.UseVisualStyleBackColor = true;
+            this.disableTitleUnescapingCheckbox.CheckedChanged += new System.EventHandler(this.disableTitleUnescapingCheckbox_CheckedChanged);
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.disableTitleUnescapingCheckbox);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.usePathCheckBox);
             this.Controls.Add(this.openChatWindowCheckBox);
@@ -106,5 +119,6 @@
         private System.Windows.Forms.CheckBox usePathCheckBox;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.ToolTip usePathToolTip;
+        private System.Windows.Forms.CheckBox disableTitleUnescapingCheckbox;
     }
 }

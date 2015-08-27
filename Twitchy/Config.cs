@@ -20,16 +20,16 @@ namespace Twitchy
         private static FileStream configFile = File.Open(configPath, FileMode.OpenOrCreate);
         private static JObject config = new JObject();
 
-        //private static string oauthPath = AppDomain.CurrentDomain.BaseDirectory + slash + "oauth";
-        // FileStream will fail and the app will crash if we don't have permissions
-        //private static FileStream oauth = File.Open(oauthPath, FileMode.OpenOrCreate);
         public static string oauthToken;
         public static bool valid = true;
 
+        // Everything is false until otherwise proven
         public static bool closeAfterLaunch = false;
         public static bool openChatWindow = false;
         public static bool usePath = false;
+        public static bool disableTitleUnescaping = false;
 
+        // Initialize our config options
         static Config()
         {
             if (configFile.Length == 0)
@@ -53,6 +53,7 @@ namespace Twitchy
                     closeAfterLaunch = config["closeAfterLaunch"].ToObject<bool>();
                     openChatWindow = config["openChatWindow"].ToObject<bool>();
                     usePath = config["usePath"].ToObject<bool>();
+                    disableTitleUnescaping = config["disableTitleUnescaping"].ToObject<bool>();
                 }
             }
         }
@@ -67,6 +68,7 @@ namespace Twitchy
             closeAfterLaunchCheckBox.Checked = closeAfterLaunch;
             openChatWindowCheckBox.Checked = openChatWindow;
             usePathCheckBox.Checked = usePath;
+            disableTitleUnescapingCheckbox.Checked = disableTitleUnescaping;
 
         }
 
@@ -103,6 +105,12 @@ namespace Twitchy
         {
             usePath = usePathCheckBox.Checked;
             config["usePath"] = usePath;
+        }
+
+        private void disableTitleUnescapingCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            disableTitleUnescaping = disableTitleUnescapingCheckbox.Checked;
+            config["disableTitleUnescaping"] = usePath;
         }
 
         private void Save_Click(object sender, EventArgs e)
