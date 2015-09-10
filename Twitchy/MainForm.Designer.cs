@@ -38,6 +38,7 @@ namespace Twitchy
             this.Games = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConfigButton = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +115,11 @@ namespace Twitchy
             this.ConfigButton.UseVisualStyleBackColor = true;
             this.ConfigButton.Click += new System.EventHandler(this.Config_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,8 +132,6 @@ namespace Twitchy
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Twitchy";
-            this.Shown += new System.EventHandler(this.Form1_Shown);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -142,6 +146,7 @@ namespace Twitchy
         private DataGridViewTextBoxColumn Games;
         private DataGridViewTextBoxColumn Titles;
         private Button ConfigButton;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

@@ -23,6 +23,7 @@ namespace Twitchy
         private static char slash = System.IO.Path.DirectorySeparatorChar;
 
         private String Streamer;
+        private List<StreamObject> ParsedStreams = new List<StreamObject>();
         
         public MainForm()
         {   // This is essentially Main() at this point.
@@ -52,89 +53,7 @@ namespace Twitchy
 
         private void init() 
         {
-            Config.checkOauth();
-            dataGridView1.Rows.Clear();
-
-            List<StreamObject> ParsedStreams = new List<StreamObject>();
-                                // Ask Twitch's API nicely if we can see who our user is following
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token="+Config.oauthToken);
-            JObject jo;
-
-            try {
-                string responseText;
-                WebResponse response = request.GetResponse();
-                using (Stream stream = response.GetResponseStream())
-                {   // Convert Twitch's response into a string and then into a JObject that we can play with
-                   StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-                   responseText = reader.ReadToEnd();
-                   jo = JsonConvert.DeserializeObject<JObject>(responseText);
-                }
-                JArray streams = (JArray)jo["streams"];
-                foreach (JObject o in streams)
-                {                           // If null, assign to the first option
-                    string title = o["channel"]["status"] == null ? o["channel"]["display_name"].ToString() + "'s Stream"
-                                            // Otherwise, check if title unescaping is enabled, if so use the unescaped title
-                                        : Config.disableTitleUnescaping ? o["channel"]["status"].ToString() 
-                                            // Finally, if all else fails, use the unescaped title
-                                        : unescape(o["channel"]["status"].ToString()) ;
-                    StreamObject so = new StreamObject(o["channel"]["display_name"].ToString(),
-                                                        o["game"].ToString(),
-                                                        title
-                                                       );
-                    ParsedStreams.Add(so);
-                }
-                // TODO combine above and below
-                using (var ps = ParsedStreams.GetEnumerator())
-                {
-                    while (ps.MoveNext())
-                    {
-                        using (DataGridViewRow row = new DataGridViewRow())
-                        {   // Populate the DataGridView.
-                            StreamObject temp = ps.Current;
-                            row.CreateCells(dataGridView1, new string[] { temp.name, temp.game, temp.title });
-                            dataGridView1.Rows.Add(row);
-                        }
-                    }
-                }
-                
-                Config.valid = true;
-            }
-            catch (WebException e)
-            {
-                if (e.Message.Contains("401"))
-                {
-                    Config.valid = false;
-                    using (DataGridViewRow a = new DataGridViewRow())
-                    {   // Complain about the invalid OAuth token.
-                        a.CreateCells(dataGridView1, new string[] { "Invalid OAuth Token.", "Please press refresh."});
-                        dataGridView1.Rows.Add(a);
-                    }
-                }
-                else
-                {
-                    using (DataGridViewRow a = new DataGridViewRow())
-                    {   // Complain about the lack of internet
-                        a.CreateCells(dataGridView1, new string[] { "Connection Issue: "+e.Status, "Twitch couldn't be reached,", "Check your connection and check to see if Twitch is up." });
-                        dataGridView1.Rows.Add(a);
-                    }
-                }
-            }
-            catch (ArgumentException e)
-            {
-                using (DataGridViewRow a = new DataGridViewRow())
-                {   // Complain about the lack of internet
-                    a.CreateCells(dataGridView1, new string[] { "Someone is doing something", "interesting with their title.", "Disable unescaping in the config and refresh to resolve this problem." });
-                    dataGridView1.Rows.Add(a);
-                }
-            }
-            catch (Exception e)
-            {
-                using (DataGridViewRow a = new DataGridViewRow())
-                {   // Complain about the lack of internet
-                    a.CreateCells(dataGridView1, new string[] { "There was a problem", e.Message, "Pressing Refresh some more will probably fix it." });
-                    dataGridView1.Rows.Add(a);
-                }
-            }
+            if (backgroundWorker1.IsBusy != true) backgroundWorker1.RunWorkerAsync();
         }
 
         private void autoSize()
@@ -191,13 +110,7 @@ namespace Twitchy
         {
             button1_Click(sender, e);
         }
-
-        private void Form1_Resize(object sender, EventArgs e)
-        {   // Dirty hack to fit the table's elements.
-            // Shouldn't be needed anymore, since it works in Form1_Shown
-            // autoSize();
-        }
-
+        
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {   // Event handler to make sure everything closes tidily.
             context.OnFormClosed(sender, e);
@@ -207,16 +120,102 @@ namespace Twitchy
         {
             Streamer = (dataGridView1.CurrentRow.Cells[0].Value.ToString());
         }
-
-        private void Form1_Shown(object sender, EventArgs e)
-        {   // This works, for some reason.
-            autoSize();
-        }
-
+        
         private void Config_Click(object sender, EventArgs e)
         {
             Form conf = new Config();
             conf.Show();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Config.checkOauth();
+
+            ParsedStreams = new List<StreamObject>();
+            // Ask Twitch's API nicely if we can see who our user is following
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token=" + Config.oauthToken);
+            JObject jo;
+
+            try
+            {
+                string responseText;
+                using (Stream stream = request.GetResponse().GetResponseStream())
+                {   // Convert Twitch's response into a string and then into a JObject that we can play with
+                    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+                    responseText = reader.ReadToEnd();
+                    jo = JsonConvert.DeserializeObject<JObject>(responseText);
+                }
+                JArray streams = (JArray)jo["streams"];
+                foreach (JObject o in streams)
+                {                           // If null, assign to the first option
+                    string title = o["channel"]["status"] == null ? o["channel"]["display_name"].ToString() + "'s Stream"
+                        // Otherwise, check if title unescaping is enabled, if so use the unescaped title
+                                        : Config.disableTitleUnescaping ? o["channel"]["status"].ToString()
+                        // Finally, if all else fails, use the unescaped title
+                                        : unescape(o["channel"]["status"].ToString());
+                    StreamObject so = new StreamObject(o["channel"]["display_name"].ToString(),
+                                                        o["game"].ToString(),
+                                                        title
+                                                       );
+                    ParsedStreams.Add(so);
+                }
+                Config.valid = true;
+            }
+            catch (WebException ex)
+            {
+                if (ex.Message.Contains("401"))
+                {
+                    Config.valid = false;
+                    using (DataGridViewRow a = new DataGridViewRow())
+                    {   // Complain about the invalid OAuth token.
+                        a.CreateCells(dataGridView1, new string[] { "Invalid OAuth Token.", "Please press refresh." });
+                        dataGridView1.Rows.Add(a);
+                    }
+                }
+                else
+                {
+                    using (DataGridViewRow a = new DataGridViewRow())
+                    {   // Complain about the lack of internet
+                        a.CreateCells(dataGridView1, new string[] { "Connection Issue: " + ex.Status, "Twitch couldn't be reached,", "Check your connection and whether or not Twitch is up." });
+                        dataGridView1.Rows.Add(a);
+                    }
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                using (DataGridViewRow a = new DataGridViewRow())
+                {   // Complain about the lack of internet
+                    a.CreateCells(dataGridView1, new string[] { "Someone is doing something", "interesting with their title.", "Disable unescaping in the config and refresh to resolve this problem." });
+                    dataGridView1.Rows.Add(a);
+                }
+            }
+            catch (Exception ex)
+            {
+                using (DataGridViewRow a = new DataGridViewRow())
+                {   // Complain about the lack of internet
+                    a.CreateCells(dataGridView1, new string[] { "There was a problem", ex.Message, "Pressing Refresh some more will probably fix it." });
+                    dataGridView1.Rows.Add(a);
+                }
+            }
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+
+            using (var ps = ParsedStreams.GetEnumerator())
+            {
+                while (ps.MoveNext())
+                {
+                    using (DataGridViewRow row = new DataGridViewRow())
+                    {   // Populate the DataGridView.
+                        StreamObject temp = ps.Current;
+                        row.CreateCells(dataGridView1, new string[] { temp.name, temp.game, temp.title });
+                        dataGridView1.Rows.Add(row);
+                    }
+                }
+            }
+            autoSize();
         }
     }
 }
