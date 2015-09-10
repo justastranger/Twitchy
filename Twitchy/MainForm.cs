@@ -54,6 +54,7 @@ namespace Twitchy
         private void init() 
         {
             if (backgroundWorker1.IsBusy != true) backgroundWorker1.RunWorkerAsync();
+            else MessageBox.Show("Streamer list is already updating, please wait.");
         }
 
         private void autoSize()
