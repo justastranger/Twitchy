@@ -39,6 +39,7 @@ namespace Twitchy
                     config["closeAfterLaunch"] = closeAfterLaunch;
                     config["openChatWindow"] = openChatWindow;
                     config["usePath"] = usePath;
+                    config["disableTitleUnescaping"] = disableTitleUnescaping;
                     checkOauth(); // Make sure we have an OAuth token before we try to save it
                     config["oauth"] = oauthToken;
                     sw.Write(config.ToString(Formatting.Indented)); // Actually save it
