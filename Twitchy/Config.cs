@@ -15,47 +15,76 @@ namespace Twitchy
 {
     public partial class Config : Form
     {
+        // Soemthing something cross-platform
         private static char slash = System.IO.Path.DirectorySeparatorChar;
+        // Determine the absolute path of the config file
         private static string configPath = AppDomain.CurrentDomain.BaseDirectory + slash + "config.json";
+        // Create a file to load/save config settings from/to
         private static FileStream configFile = File.Open(configPath, FileMode.OpenOrCreate);
-        private static JObject config = new JObject();
+        // Create an empty Object to store config settings in and access from elsewhere
+        public static JObject config = new JObject();
 
+        // OAuth token to use with the Twitch API
         public static string oauthToken;
+        // If an API response comes back invalid, this becomes false
+        // The next time the token is checked (before every refresh),
+        //   the user will be prompted for a valid token
         public static bool valid = true;
-
-        // Everything is false until otherwise proven
-        public static bool closeAfterLaunch = false;
-        public static bool openChatWindow = false;
-        public static bool usePath = false;
-        public static bool disableTitleUnescaping = false;
-
+        
         // Initialize our config options
+        // TODO completely re-do this part so Twitchy doesn't
+        //   crash when new config options are added
         static Config()
         {
+            // Prepare our JObject with all the current config options
+            //   all of which default to false
+            config["closeAfterLaunch"] = false;
+            config["openChatWindow"] = false;
+            config["usePath"] = false;
+            config["disableTitleUnescaping"] = false;
+            
+            // If our config file doesn't already exist
             if (configFile.Length == 0)
             {
+                // Create it
                 using (StreamWriter sw = new StreamWriter(configFile))
-                {   // Prepare our JObject to be saved
-                    config["closeAfterLaunch"] = closeAfterLaunch;
-                    config["openChatWindow"] = openChatWindow;
-                    config["usePath"] = usePath;
-                    config["disableTitleUnescaping"] = disableTitleUnescaping;
-                    checkOauth(); // Make sure we have an OAuth token before we try to save it
-                    config["oauth"] = oauthToken;
-                    sw.Write(config.ToString(Formatting.Indented)); // Actually save it
+                {
+                    checkOauth();
+                    MessageBox.Show("Saving Config File");
+                    sw.Write(config.ToString(Formatting.Indented));
                 }
             }
-            else
+            else // Otherwise
             {
+                // Read it into a temporary object
+                JObject tmp;
                 using (StreamReader sr = new StreamReader(configFile))
-                {   // Read an existing config file
-                    config = JObject.Parse(sr.ReadToEnd());
-                    oauthToken = config["oauth"].ToObject<string>();
-                    closeAfterLaunch = config["closeAfterLaunch"].ToObject<bool>();
-                    openChatWindow = config["openChatWindow"].ToObject<bool>();
-                    usePath = config["usePath"].ToObject<bool>();
-                    disableTitleUnescaping = config["disableTitleUnescaping"].ToObject<bool>();
+                {
+                    // Assign the object
+                    tmp = JObject.Parse(sr.ReadToEnd());
+                    // Close the reader
+                    sr.Close();
                 }
+                // And then assign the values of the tmp object to our actual object
+                foreach (KeyValuePair<String, JToken> kvp in tmp)
+                {
+                    config[kvp.Key] = kvp.Value;
+                }
+                // Finally, we save the final version of our config object which includes
+                //   all the defaults for options not found in the previous version of 
+                //   the file
+                // First, re-create the FileStream that was closed by closing the StreamReader
+                configFile = File.Open(configPath, FileMode.Open);
+                // Then create a StreamWriter
+                using (StreamWriter sw = new StreamWriter(configFile))
+                {
+                    // Save the file
+                    sw.Write(config.ToString(Formatting.Indented));
+                    // Close the StreamWriter and the FileStream (for good this time)
+                    sw.Close();
+                }
+                // make sure that we have an OAuth token
+                checkOauth();
             }
         }
 
@@ -66,10 +95,11 @@ namespace Twitchy
             this.Closed += new EventHandler(Save_Click);
             InitializeComponent();
 
-            closeAfterLaunchCheckBox.Checked = closeAfterLaunch;
-            openChatWindowCheckBox.Checked = openChatWindow;
-            usePathCheckBox.Checked = usePath;
-            disableTitleUnescapingCheckbox.Checked = disableTitleUnescaping;
+            // Initialize the checkboxes
+            closeAfterLaunchCheckBox.Checked = config["closeAfterLaunch"].ToObject<bool>();
+            openChatWindowCheckBox.Checked = config["openChatWindow"].ToObject<bool>();
+            usePathCheckBox.Checked = config["usePath"].ToObject<bool>();
+            disableTitleUnescapingCheckbox.Checked = config["disableTitleUnescaping"].ToObject<bool>();
 
         }
 
@@ -81,37 +111,32 @@ namespace Twitchy
 
         public static void checkOauth()
         {
-            if (!valid) oauthToken = null;
+            if (!valid) config["oauth"] = null;
 
-            if (oauthToken == null)
+            if (config["oauth"] == null)
             {
-                oauthToken = Twitchy.Prompt.ShowDialog(@"Please enter your Oauth key, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
-                config["oauth"] = oauthToken;
+                config["oauth"] = Twitchy.Prompt.ShowDialog(@"Please enter your Oauth key, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
             }
         }
 
         private void closeAfterLaunchCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            closeAfterLaunch = closeAfterLaunchCheckBox.Checked;
-            config["closeAfterLaunch"] = closeAfterLaunch;
+            config["closeAfterLaunch"] = closeAfterLaunchCheckBox.Checked;
         }
 
         private void openChatWindowCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            openChatWindow = openChatWindowCheckBox.Checked;
-            config["openChatWindow"] = openChatWindow;
+            config["openChatWindow"] = openChatWindowCheckBox.Checked;
         }
 
         private void usePathCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            usePath = usePathCheckBox.Checked;
-            config["usePath"] = usePath;
+            config["usePath"] = usePathCheckBox.Checked;
         }
 
         private void disableTitleUnescapingCheckbox_CheckedChanged(object sender, EventArgs e)
         {
-            disableTitleUnescaping = disableTitleUnescapingCheckbox.Checked;
-            config["disableTitleUnescaping"] = usePath;
+            config["disableTitleUnescaping"] = disableTitleUnescapingCheckbox.Checked;
         }
 
         private void Save_Click(object sender, EventArgs e)

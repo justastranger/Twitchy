@@ -95,7 +95,7 @@ namespace Twitchy
             }
 
             Process livestreamer = new Process();
-            if (Config.usePath) { // Either use whatever is in PATH or use the packaged versions, might help with *nix compat
+            if (Config.config["usePath"].ToObject<bool>()) { // Either use whatever is in PATH or use the packaged versions, might help with *nix compat
                 livestreamer.StartInfo.FileName = "livestreamer";
                 livestreamer.StartInfo.Arguments = "twitch.tv/" + Streamer + " best";
             } else {
@@ -103,8 +103,8 @@ namespace Twitchy
                 livestreamer.StartInfo.Arguments = "-p MPC-HC" + slash + "mpc-hc.exe twitch.tv/" + Streamer + " best";
             }
             livestreamer.Start();
-            if (Config.openChatWindow) ChatWindow.ShowChat(Streamer);
-            if (Config.closeAfterLaunch) this.Close();
+            if (Config.config["openChatWindow"].ToObject<bool>()) ChatWindow.ShowChat(Streamer);
+            if (Config.config["closeAfterLaunch"].ToObject<bool>()) this.Close();
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -134,7 +134,7 @@ namespace Twitchy
 
             ParsedStreams = new List<StreamObject>();
             // Ask Twitch's API nicely if we can see who our user is following
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token=" + Config.oauthToken);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token=" + Config.config["oauth"].ToObject<string>());
             JObject jo;
 
             try
@@ -151,7 +151,7 @@ namespace Twitchy
                 {                           // If null, assign to the first option
                     string title = o["channel"]["status"] == null ? o["channel"]["display_name"].ToString() + "'s Stream"
                         // Otherwise, check if title unescaping is enabled, if so use the unescaped title
-                                        : Config.disableTitleUnescaping ? o["channel"]["status"].ToString()
+                                        : Config.config["disableTitleUnescaping"].ToObject<bool>() ? o["channel"]["status"].ToString()
                         // Finally, if all else fails, use the unescaped title
                                         : unescape(o["channel"]["status"].ToString());
                     StreamObject so = new StreamObject(o["channel"]["display_name"].ToString(),

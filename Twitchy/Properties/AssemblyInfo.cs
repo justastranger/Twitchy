@@ -27,8 +27,8 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 // Verions is in the form of major.minor.patch
-// Major is any change to the way the program works
-// Minor is any change that does not affect the way the program works
-// Patch is a minor bugfix
-[assembly: AssemblyVersion("3.0.2")]
-[assembly: AssemblyFileVersion("3.0.2")]
+// Major is any change to the way the program works (new features and such)
+// Minor is any change that does not affect the way the program works (minor refactoring), resets to 0 is Major is incremented
+// Patch is a minor bugfix, resets to 0 if either Major or Minor is incremented
+[assembly: AssemblyVersion("3.1.0")]
+[assembly: AssemblyFileVersion("3.1.0")]
