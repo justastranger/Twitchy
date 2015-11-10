@@ -32,10 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Config));
             this.closeAfterLaunchCheckBox = new System.Windows.Forms.CheckBox();
             this.openChatWindowCheckBox = new System.Windows.Forms.CheckBox();
-            this.usePathCheckBox = new System.Windows.Forms.CheckBox();
             this.Save = new System.Windows.Forms.Button();
             this.usePathToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.disableTitleUnescapingCheckbox = new System.Windows.Forms.CheckBox();
+            this.useCustomLivestreamerCheckBox = new System.Windows.Forms.CheckBox();
+            this.setLivestreamerButton = new System.Windows.Forms.Button();
+            this.useCustomPlayerCheckBox = new System.Windows.Forms.CheckBox();
+            this.setPlayerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // closeAfterLaunchCheckBox
@@ -60,19 +63,6 @@
             this.openChatWindowCheckBox.UseVisualStyleBackColor = true;
             this.openChatWindowCheckBox.CheckedChanged += new System.EventHandler(this.openChatWindowCheckBox_CheckedChanged);
             // 
-            // usePathCheckBox
-            // 
-            this.usePathCheckBox.AutoSize = true;
-            this.usePathCheckBox.Location = new System.Drawing.Point(12, 58);
-            this.usePathCheckBox.Name = "usePathCheckBox";
-            this.usePathCheckBox.Size = new System.Drawing.Size(117, 17);
-            this.usePathCheckBox.TabIndex = 2;
-            this.usePathCheckBox.Text = "Use PATH defaults";
-            this.usePathToolTip.SetToolTip(this.usePathCheckBox, "Check this to use a pre-installed copy of livestreamer and a compatible video pla" +
-        "yer.");
-            this.usePathCheckBox.UseVisualStyleBackColor = true;
-            this.usePathCheckBox.CheckedChanged += new System.EventHandler(this.usePathCheckBox_CheckedChanged);
-            // 
             // Save
             // 
             this.Save.Location = new System.Drawing.Point(188, 211);
@@ -94,14 +84,59 @@
             this.disableTitleUnescapingCheckbox.UseVisualStyleBackColor = true;
             this.disableTitleUnescapingCheckbox.CheckedChanged += new System.EventHandler(this.disableTitleUnescapingCheckbox_CheckedChanged);
             // 
+            // useCustomLivestreamerCheckBox
+            // 
+            this.useCustomLivestreamerCheckBox.AutoSize = true;
+            this.useCustomLivestreamerCheckBox.Location = new System.Drawing.Point(12, 104);
+            this.useCustomLivestreamerCheckBox.Name = "useCustomLivestreamerCheckBox";
+            this.useCustomLivestreamerCheckBox.Size = new System.Drawing.Size(165, 17);
+            this.useCustomLivestreamerCheckBox.TabIndex = 5;
+            this.useCustomLivestreamerCheckBox.Text = "Use custom livestreamer path";
+            this.useCustomLivestreamerCheckBox.UseVisualStyleBackColor = true;
+            this.useCustomLivestreamerCheckBox.CheckedChanged += new System.EventHandler(this.useCustomLivestreamerCheckBox_CheckedChanged);
+            // 
+            // setLivestreamerButton
+            // 
+            this.setLivestreamerButton.Location = new System.Drawing.Point(188, 97);
+            this.setLivestreamerButton.Name = "setLivestreamerButton";
+            this.setLivestreamerButton.Size = new System.Drawing.Size(75, 24);
+            this.setLivestreamerButton.TabIndex = 6;
+            this.setLivestreamerButton.Text = "Set Path";
+            this.setLivestreamerButton.UseVisualStyleBackColor = true;
+            this.setLivestreamerButton.Click += new System.EventHandler(this.setLivestreamerButton_Click);
+            // 
+            // useCustomPlayerCheckBox
+            // 
+            this.useCustomPlayerCheckBox.AutoSize = true;
+            this.useCustomPlayerCheckBox.Location = new System.Drawing.Point(12, 127);
+            this.useCustomPlayerCheckBox.Name = "useCustomPlayerCheckBox";
+            this.useCustomPlayerCheckBox.Size = new System.Drawing.Size(142, 17);
+            this.useCustomPlayerCheckBox.TabIndex = 7;
+            this.useCustomPlayerCheckBox.Text = "Use custom video player";
+            this.useCustomPlayerCheckBox.UseVisualStyleBackColor = true;
+            this.useCustomPlayerCheckBox.CheckedChanged += new System.EventHandler(this.useCustomPlayerCheckBox_CheckedChanged);
+            // 
+            // setPlayerButton
+            // 
+            this.setPlayerButton.Location = new System.Drawing.Point(188, 127);
+            this.setPlayerButton.Name = "setPlayerButton";
+            this.setPlayerButton.Size = new System.Drawing.Size(75, 28);
+            this.setPlayerButton.TabIndex = 8;
+            this.setPlayerButton.Text = "Set path";
+            this.setPlayerButton.UseVisualStyleBackColor = true;
+            this.setPlayerButton.Click += new System.EventHandler(this.setPlayerButton_Click);
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.setPlayerButton);
+            this.Controls.Add(this.useCustomPlayerCheckBox);
+            this.Controls.Add(this.setLivestreamerButton);
+            this.Controls.Add(this.useCustomLivestreamerCheckBox);
             this.Controls.Add(this.disableTitleUnescapingCheckbox);
             this.Controls.Add(this.Save);
-            this.Controls.Add(this.usePathCheckBox);
             this.Controls.Add(this.openChatWindowCheckBox);
             this.Controls.Add(this.closeAfterLaunchCheckBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -116,9 +151,12 @@
 
         private System.Windows.Forms.CheckBox closeAfterLaunchCheckBox;
         private System.Windows.Forms.CheckBox openChatWindowCheckBox;
-        private System.Windows.Forms.CheckBox usePathCheckBox;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.ToolTip usePathToolTip;
         private System.Windows.Forms.CheckBox disableTitleUnescapingCheckbox;
+        private System.Windows.Forms.CheckBox useCustomLivestreamerCheckBox;
+        private System.Windows.Forms.Button setLivestreamerButton;
+        private System.Windows.Forms.CheckBox useCustomPlayerCheckBox;
+        private System.Windows.Forms.Button setPlayerButton;
     }
 }

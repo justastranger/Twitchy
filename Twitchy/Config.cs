@@ -32,16 +32,17 @@ namespace Twitchy
         public static bool valid = true;
         
         // Initialize our config options
-        // TODO completely re-do this part so Twitchy doesn't
-        //   crash when new config options are added
         static Config()
         {
             // Prepare our JObject with all the current config options
             //   all of which default to false
             config["closeAfterLaunch"] = false;
             config["openChatWindow"] = false;
-            config["usePath"] = false;
             config["disableTitleUnescaping"] = false;
+            config["useCustomLivestreamer"] = false;
+            config["livestreamer"] = @".\ls\livestreamer.exe";
+            config["useCustomPlayer"] = false;
+            config["player"] = @".\MPC-HC\mpc-hc.exe";
             
             // If our config file doesn't already exist
             if (configFile.Length == 0)
@@ -88,19 +89,24 @@ namespace Twitchy
             }
         }
 
+        // The constructor doesn't actually affect any of the config settings,
+        //   it just reads them and checks any checkboxes that were already checked
         public Config()
         {
+            // These are for form-counting so the process only terminates when all forms
+            //   are closed, it's mainly aimed at the chat windows, but is applied to all forms
             this.FormClosed += new FormClosedEventHandler(context.OnFormClosed);
             this.Closed += new EventHandler(context.OnFormClosed);
+            // This saves all the config options when the form is closed
             this.Closed += new EventHandler(Save_Click);
             InitializeComponent();
 
             // Initialize the checkboxes
             closeAfterLaunchCheckBox.Checked = config["closeAfterLaunch"].ToObject<bool>();
             openChatWindowCheckBox.Checked = config["openChatWindow"].ToObject<bool>();
-            usePathCheckBox.Checked = config["usePath"].ToObject<bool>();
             disableTitleUnescapingCheckbox.Checked = config["disableTitleUnescaping"].ToObject<bool>();
-
+            useCustomLivestreamerCheckBox.Checked = config["useCustomLivestreamer"].ToObject<bool>();
+            useCustomPlayerCheckBox.Checked = config["useCustomPlayer"].ToObject<bool>();
         }
 
         private static void AddText(FileStream fs, string value)
@@ -110,13 +116,25 @@ namespace Twitchy
         }
 
         public static void checkOauth()
-        {
+        {   // If we've marked the oauth token as invalid, null the config option for it
             if (!valid) config["oauth"] = null;
-
+            // If the config option for the oauth token is null, ask for an oauth token
             if (config["oauth"] == null)
             {
-                config["oauth"] = Twitchy.Prompt.ShowDialog(@"Please enter your Oauth key, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
+                config["oauth"] = Twitchy.Prompt.ShowDialog(@"Please enter your OAuth token, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
             }
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {   // OVerwrite the previous config file
+            configFile = File.Open(configPath, FileMode.Create);
+            using (StreamWriter sw = new StreamWriter(configFile))
+            {   // and save our config object to it
+                sw.Write(config.ToString());
+            }
+            // And if this function is called by button press 
+            //   instead of an event handler, close the form
+            if (sender != this) { this.Close(); }
         }
 
         private void closeAfterLaunchCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -129,24 +147,33 @@ namespace Twitchy
             config["openChatWindow"] = openChatWindowCheckBox.Checked;
         }
 
-        private void usePathCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            config["usePath"] = usePathCheckBox.Checked;
-        }
-
         private void disableTitleUnescapingCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             config["disableTitleUnescaping"] = disableTitleUnescapingCheckbox.Checked;
         }
 
-        private void Save_Click(object sender, EventArgs e)
+        private void useCustomLivestreamerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            configFile = File.Open(configPath, FileMode.Create);
-            using (StreamWriter sw = new StreamWriter(configFile))
-            {
-                sw.Write(config.ToString());
-            }
-            if (sender != this) { this.Close(); }
+            config["useCustomLivestreamer"] = useCustomLivestreamerCheckBox.Checked;
+        }
+
+        private void useCustomPlayerCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            config["useCustomPlayer"] = useCustomPlayerCheckBox.Checked;
+        }
+
+        private void setLivestreamerButton_Click(object sender, EventArgs e)
+        {
+            FileDialog fd = new OpenFileDialog();
+            fd.ShowDialog();
+            config["livestreamer"] = fd.FileName;
+        }
+
+        private void setPlayerButton_Click(object sender, EventArgs e)
+        {
+            FileDialog fd = new OpenFileDialog();
+            fd.ShowDialog();
+            config["player"] = fd.FileName;
         }
     }
 }

@@ -53,7 +53,16 @@ namespace Twitchy
 
         private void init() 
         {
-            if (backgroundWorker1.IsBusy != true) backgroundWorker1.RunWorkerAsync();
+            if (backgroundWorker1.IsBusy != true)
+            {
+                dataGridView1.Rows.Clear();
+                using (DataGridViewRow a = new DataGridViewRow())
+                {   // Complain about the invalid OAuth token.
+                    a.CreateCells(dataGridView1, new string[] { "Working..." });
+                    dataGridView1.Rows.Add(a);
+                }
+                backgroundWorker1.RunWorkerAsync();
+            }
             else MessageBox.Show("Streamer list is already updating, please wait.");
         }
 
@@ -93,15 +102,20 @@ namespace Twitchy
                 MessageBox.Show("Select a streamer.");
                 return;
             }
-
             Process livestreamer = new Process();
-            if (Config.config["usePath"].ToObject<bool>()) { // Either use whatever is in PATH or use the packaged versions, might help with *nix compat
-                livestreamer.StartInfo.FileName = "livestreamer";
-                livestreamer.StartInfo.Arguments = "twitch.tv/" + Streamer + " best";
+            if (Config.config["useCustomLivestreamer"].ToObject<bool>())
+            {
+                livestreamer.StartInfo.FileName = Config.config["livestreamer"].ToString();
             } else {
-                livestreamer.StartInfo.FileName = "." + slash + "ls" + slash + "livestreamer.exe";
-                livestreamer.StartInfo.Arguments = "-p MPC-HC" + slash + "mpc-hc.exe twitch.tv/" + Streamer + " best";
+                livestreamer.StartInfo.FileName = @".\ls\livestreamer.exe";
             }
+            if (Config.config["useCustomPlayer"].ToObject<bool>())
+            {
+                livestreamer.StartInfo.Arguments = "-p " + Config.config["player"].ToString() + " twitch.tv/" + Streamer + " best";
+            } else {
+                livestreamer.StartInfo.Arguments = "-p " + @".\MPC-HC\mpc-hc.exe" + " twitch.tv/" + Streamer + " best";
+            }
+            
             livestreamer.Start();
             if (Config.config["openChatWindow"].ToObject<bool>()) ChatWindow.ShowChat(Streamer);
             if (Config.config["closeAfterLaunch"].ToObject<bool>()) this.Close();
@@ -119,11 +133,11 @@ namespace Twitchy
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            Streamer = (dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            Streamer = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
         
         private void Config_Click(object sender, EventArgs e)
-        {
+        {   // Construct a new config menu and show it.
             Form conf = new Config();
             conf.Show();
         }
@@ -203,7 +217,6 @@ namespace Twitchy
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             dataGridView1.Rows.Clear();
-
             using (var ps = ParsedStreams.GetEnumerator())
             {
                 while (ps.MoveNext())
