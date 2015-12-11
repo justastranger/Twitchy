@@ -1,4 +1,5 @@
 - [x] Let Twitchy minimize to tray
+- [ ] Find a replacement for the chat window
 - [ ] Support other platforms?
   - [ ] beam.pro - supported by the latest builds of Livestreamer
     - [ ] Figure out their API
