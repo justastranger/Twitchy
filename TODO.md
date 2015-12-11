@@ -1,0 +1,6 @@
+- [ ] Let Twitchy minimize to tray
+  - [ ] Figure out how exactly that's supposed to work
+- [ ] Support other platforms?
+  - [ ] beam.pro - supported by the latest builds of Livestreamer
+    - [ ] Figure out their API
+  - [ ] ???
