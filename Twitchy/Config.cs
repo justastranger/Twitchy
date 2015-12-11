@@ -43,6 +43,7 @@ namespace Twitchy
             config["livestreamer"] = @".\ls\livestreamer.exe";
             config["useCustomPlayer"] = false;
             config["player"] = @".\MPC-HC\mpc-hc.exe";
+            config["minimizeToTaskbar"] = true;
             
             // If our config file doesn't already exist
             if (configFile.Length == 0)
@@ -107,6 +108,7 @@ namespace Twitchy
             disableTitleUnescapingCheckbox.Checked = config["disableTitleUnescaping"].ToObject<bool>();
             useCustomLivestreamerCheckBox.Checked = config["useCustomLivestreamer"].ToObject<bool>();
             useCustomPlayerCheckBox.Checked = config["useCustomPlayer"].ToObject<bool>();
+            minimizeToTaskbarCheckbox.Checked = config["minimizeToTaskbar"].ToObject<bool>();
         }
 
         private static void AddText(FileStream fs, string value)
@@ -160,6 +162,11 @@ namespace Twitchy
         private void useCustomPlayerCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             config["useCustomPlayer"] = useCustomPlayerCheckBox.Checked;
+        }
+
+        private void minimizeToTaskbarCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            config["minimizeToTaskbar"] = minimizeToTaskbarCheckbox.Checked;
         }
 
         private void setLivestreamerButton_Click(object sender, EventArgs e)

@@ -241,7 +241,7 @@ namespace Twitchy
         
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            if(this.WindowState == FormWindowState.Minimized)
+            if (Config.config["minimizeToTaskbar"].ToObject<bool>() && this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
                 notifyIcon1.Visible = true;

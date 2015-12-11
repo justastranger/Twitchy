@@ -39,6 +39,7 @@
             this.setLivestreamerButton = new System.Windows.Forms.Button();
             this.useCustomPlayerCheckBox = new System.Windows.Forms.CheckBox();
             this.setPlayerButton = new System.Windows.Forms.Button();
+            this.minimizeToTaskbarCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // closeAfterLaunchCheckBox
@@ -126,11 +127,23 @@
             this.setPlayerButton.UseVisualStyleBackColor = true;
             this.setPlayerButton.Click += new System.EventHandler(this.setPlayerButton_Click);
             // 
+            // minimizeToTaskbarCheckbox
+            // 
+            this.minimizeToTaskbarCheckbox.AutoSize = true;
+            this.minimizeToTaskbarCheckbox.Location = new System.Drawing.Point(12, 58);
+            this.minimizeToTaskbarCheckbox.Name = "minimizeToTaskbarCheckbox";
+            this.minimizeToTaskbarCheckbox.Size = new System.Drawing.Size(120, 17);
+            this.minimizeToTaskbarCheckbox.TabIndex = 9;
+            this.minimizeToTaskbarCheckbox.Text = "Minimize to Taskbar";
+            this.minimizeToTaskbarCheckbox.UseVisualStyleBackColor = true;
+            this.minimizeToTaskbarCheckbox.CheckedChanged += new System.EventHandler(this.minimizeToTaskbarCheckbox_CheckedChanged);
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.minimizeToTaskbarCheckbox);
             this.Controls.Add(this.setPlayerButton);
             this.Controls.Add(this.useCustomPlayerCheckBox);
             this.Controls.Add(this.setLivestreamerButton);
@@ -158,5 +171,6 @@
         private System.Windows.Forms.Button setLivestreamerButton;
         private System.Windows.Forms.CheckBox useCustomPlayerCheckBox;
         private System.Windows.Forms.Button setPlayerButton;
+        private System.Windows.Forms.CheckBox minimizeToTaskbarCheckbox;
     }
 }
