@@ -231,5 +231,21 @@ namespace Twitchy
             }
             autoSize();
         }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            notifyIcon1.Visible = false;
+            this.WindowState = FormWindowState.Normal;
+        }
+        
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                notifyIcon1.Visible = true;
+            }
+        }
     }
 }
