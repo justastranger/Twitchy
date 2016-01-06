@@ -231,13 +231,6 @@ namespace Twitchy
             }
             autoSize();
         }
-
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            this.Show();
-            notifyIcon1.Visible = false;
-            this.WindowState = FormWindowState.Normal;
-        }
         
         private void MainForm_Resize(object sender, EventArgs e)
         {
@@ -246,6 +239,13 @@ namespace Twitchy
                 this.Hide();
                 notifyIcon1.Visible = true;
             }
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            notifyIcon1.Visible = false;
+            this.WindowState = FormWindowState.Normal;
         }
     }
 }
