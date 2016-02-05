@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Diagnostics;
-using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Twitchy
 {
-    
+
     public partial class MainForm : Form
     {
         private static char slash = System.IO.Path.DirectorySeparatorChar;
