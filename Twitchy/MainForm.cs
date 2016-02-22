@@ -112,7 +112,7 @@ namespace Twitchy
             }
             
             livestreamer.Start();
-            if (Config.config["openChatWindow"].ToObject<bool>()) ChatWindow.ShowChat(Streamer);
+            // if (Config.config["openChatWindow"].ToObject<bool>()) ChatWindow.ShowChat(Streamer);
             if (Config.config["closeAfterLaunch"].ToObject<bool>()) this.Close();
         }
 

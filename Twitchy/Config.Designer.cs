@@ -62,6 +62,7 @@
             this.openChatWindowCheckBox.TabIndex = 1;
             this.openChatWindowCheckBox.Text = "Open a chat window along with the stream";
             this.openChatWindowCheckBox.UseVisualStyleBackColor = true;
+            this.openChatWindowCheckBox.Visible = false;
             this.openChatWindowCheckBox.CheckedChanged += new System.EventHandler(this.openChatWindowCheckBox_CheckedChanged);
             // 
             // Save
