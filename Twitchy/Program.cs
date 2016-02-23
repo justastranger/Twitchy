@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CefSharp;
+using System;
 using System.Windows.Forms;
 
 namespace Twitchy
@@ -11,6 +12,7 @@ namespace Twitchy
         [STAThread]
         static void Main()
         {
+            Cef.Initialize(new CefSettings(), shutdownOnProcessExit: true, performDependencyCheck: true);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new context());

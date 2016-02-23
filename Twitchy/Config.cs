@@ -33,7 +33,7 @@ namespace Twitchy
             //   all of which default to false
             config["closeAfterLaunch"] = false;
             // Disabled until I can find a solution that a.) works, b.) doesn't leak memory like a bottomless bucket
-            // config["openChatWindow"] = false;
+            config["openChatWindow"] = false;
             config["disableTitleUnescaping"] = false;
             config["useCustomLivestreamer"] = false;
             config["livestreamer"] = @".\ls\livestreamer.exe";
@@ -100,7 +100,7 @@ namespace Twitchy
 
             // Initialize the checkboxes
             closeAfterLaunchCheckBox.Checked = config["closeAfterLaunch"].ToObject<bool>();
-            // openChatWindowCheckBox.Checked = config["openChatWindow"].ToObject<bool>();
+            openChatWindowCheckBox.Checked = config["openChatWindow"].ToObject<bool>();
             disableTitleUnescapingCheckbox.Checked = config["disableTitleUnescaping"].ToObject<bool>();
             useCustomLivestreamerCheckBox.Checked = config["useCustomLivestreamer"].ToObject<bool>();
             useCustomPlayerCheckBox.Checked = config["useCustomPlayer"].ToObject<bool>();
