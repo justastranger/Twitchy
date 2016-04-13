@@ -9,6 +9,7 @@ using System.IO;
 using System.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Twitchy.api;
 
 namespace Twitchy
 {
@@ -31,10 +32,32 @@ namespace Twitchy
             if (page != null) tabControl1.TabPages.Add(page);
         }
 
+        private void clearPages()
+        {
+            tabControl1.TabPages.Clear();
+        }
+
         private void configButton_Click(object sender, EventArgs e)
         {
             ConfigForm form = new ConfigForm();
             form.Show();
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            clearPages();
+            PluginManager.initializePages();
+        }
+
+        private void launchButton_Click(object sender, EventArgs e)
+        {
+            TabPage openPage = tabControl1.SelectedTab;
+            // Grab the contents of the first cell in the selected row, it should be the streamer
+            string streamer = ((DataGridView)openPage.Controls[0]).CurrentRow.Cells[0].Value.ToString();
+            Process livestreamer = new Process();
+            livestreamer.StartInfo.FileName = @".\ls\livestreamer.exe";
+            livestreamer.StartInfo.Arguments = @"-p .\MPC-HC\mpc-hc.exe " + PluginManager.plugins[openPage.Name].formatLivestreamer(streamer);
+            livestreamer.Start();
         }
     }
 }

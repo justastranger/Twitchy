@@ -13,8 +13,7 @@ namespace Twitchy.Plugins
 {
     class Twitch : Plugin
     {
-
-        private string Streamer;
+        
         private List<StreamObject> ParsedStreams = new List<StreamObject>();
 
         public override string name { get; set; }
@@ -27,7 +26,12 @@ namespace Twitchy.Plugins
             config = new JObject();
             config["oauth"] = "changethis";
             config["disableTitleUnescaping"] = false;
-            config = ConfigManager.instance.registerPlugin(name, config);
+            config = ConfigManager.registerPlugin(name, config);
+        }
+
+        public override string formatLivestreamer(string Streamer)
+        {
+            return @"twitch.tv/"+Streamer+" best";
         }
 
         public override TabPage getPage()
@@ -36,12 +40,16 @@ namespace Twitchy.Plugins
             TabPage page = new TabPage();
             page.Name = this.name;
             DataGridView contents = new DataGridView();
+            contents.Anchor = (AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
+            contents.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            contents.EditMode = DataGridViewEditMode.EditProgrammatically;
             contents.Columns.Add("name", "Name");
             contents.Columns.Add("game", "Game");
             contents.Columns.Add("title", "Title");
             page.Controls.Add(contents);
             if(fillDGV(contents))
             {
+                contents.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 return page;
             } else {
                 return null;

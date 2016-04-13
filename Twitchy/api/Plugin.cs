@@ -15,5 +15,7 @@ namespace Twitchy.api
         // still initialize its config (allowing people to set up the plugin) but the
         // null will be silently discarded
         abstract public TabPage getPage();
+
+        abstract public string formatLivestreamer(string Streamer);
     }
 }

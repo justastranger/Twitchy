@@ -33,6 +33,9 @@
             // 
             // configTabs
             // 
+            this.configTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.configTabs.Location = new System.Drawing.Point(12, 12);
             this.configTabs.Name = "configTabs";
             this.configTabs.SelectedIndex = 0;

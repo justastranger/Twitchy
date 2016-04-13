@@ -9,11 +9,10 @@ namespace Twitchy
 {
     class PluginManager
     {
-        public static PluginManager instance = new PluginManager();
 
-        public Dictionary<string, Plugin> plugins = new Dictionary<string, Plugin>();
+        public static Dictionary<string, Plugin> plugins = new Dictionary<string, Plugin>();
         
-        public void initializePages()
+        public static void initializePages()
         {
             foreach (KeyValuePair<string, Plugin> plugin in plugins)
             {
@@ -30,9 +29,11 @@ namespace Twitchy
 
             foreach (string plugin in pluginPaths)
             {
+                // Only load dll's
+                if (!plugin.EndsWith(".dll")) continue;
                 Assembly assembly = (Assembly.LoadFile(plugin));
                 Plugin pluginInstance = (Plugin)assembly.CreateInstance(Path.GetFileNameWithoutExtension(plugin));
-                instance.plugins.Add(pluginInstance.name, pluginInstance);
+                plugins.Add(pluginInstance.name, pluginInstance);
             }
         }
     }

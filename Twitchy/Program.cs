@@ -34,7 +34,7 @@ namespace Twitchy
         {
             twitcheroo();
             PluginManager.loadPlugins();
-            PluginManager.instance.initializePages();
+            PluginManager.initializePages();
         }
 
         public static void OnFormClosed(object sender, EventArgs e)

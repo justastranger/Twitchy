@@ -20,6 +20,8 @@ namespace Twitchy
             {
                 tmp = new TabPage(config.Key);
                 DataGridView dgv = new DataGridView();
+                dgv.Name = config.Key;
+                dgv.Anchor = (AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
                 dgv.Columns.Add("key", "key");
                 dgv.Columns.Add("value", "value");
                 foreach (KeyValuePair<string, JToken> subConfig in (JObject)config.Value)
@@ -31,9 +33,20 @@ namespace Twitchy
                     }
                 }
                 tmp.Controls.Add(dgv);
+                dgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                dgv.CellEndEdit += new DataGridViewCellEventHandler(cellEndEdit);
                 tabPages[counter] = tmp;
                 counter++;
             }
+        }
+
+        static void cellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView s = (DataGridView)sender;
+            string key = s.Rows[e.RowIndex].Cells[0].Value.ToString();
+            string newValue = s.CurrentCell.Value.ToString();
+            string plugin = s.Name;
+            ConfigManager.changeSetting(plugin, key, newValue);
         }
 
         public ConfigForm()
