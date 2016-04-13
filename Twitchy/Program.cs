@@ -6,6 +6,7 @@ namespace Twitchy
 {
     static class Program
     {
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -21,7 +22,7 @@ namespace Twitchy
 
     public class context : ApplicationContext
     {
-        public static Form twitchy;
+        public static MainForm twitchy;
         public static int formCount = 0;
 
         public static void twitcheroo(){
@@ -29,8 +30,11 @@ namespace Twitchy
             twitchy.Show();
         }
 
-        public context(){
+        public context()
+        {
             twitcheroo();
+            PluginManager.loadPlugins();
+            PluginManager.instance.initializePages();
         }
 
         public static void OnFormClosed(object sender, EventArgs e)
