@@ -47,6 +47,8 @@ namespace Twitchy
         {
             clearPages();
             PluginManager.initializePages();
+            DataGridView dgv = (DataGridView)tabControl1.SelectedTab.Controls[0];
+            dgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         private void launchButton_Click(object sender, EventArgs e)
@@ -58,6 +60,12 @@ namespace Twitchy
             livestreamer.StartInfo.FileName = @".\ls\livestreamer.exe";
             livestreamer.StartInfo.Arguments = @"-p .\MPC-HC\mpc-hc.exe " + PluginManager.plugins[openPage.Name].formatLivestreamer(streamer);
             livestreamer.Start();
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            //DataGridView dgv = (DataGridView)tabControl1.SelectedTab.Controls[0];
+            //dgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }

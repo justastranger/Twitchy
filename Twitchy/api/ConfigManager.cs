@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.IO;
 
-namespace Twitchy
+namespace Twitchy.api
 {
     public class ConfigManager
     {

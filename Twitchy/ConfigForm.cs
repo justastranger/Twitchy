@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Twitchy.api;
 
 namespace Twitchy
 {

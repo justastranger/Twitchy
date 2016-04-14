@@ -37,8 +37,8 @@ namespace Twitchy.Plugins
         public override TabPage getPage()
         {
             if (config["oauth"].ToObject<string>() == "changethis") return null;
-            TabPage page = new TabPage();
-            page.Name = this.name;
+            TabPage page = new TabPage(name);
+            page.Name = name;
             DataGridView contents = new DataGridView();
             contents.Anchor = (AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
             contents.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -49,7 +49,6 @@ namespace Twitchy.Plugins
             page.Controls.Add(contents);
             if(fillDGV(contents))
             {
-                contents.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 return page;
             } else {
                 return null;
@@ -143,20 +142,5 @@ namespace Twitchy.Plugins
             return Regex.Unescape(toUnescape);
         }
 
-    }
-
-    class StreamObject
-    {
-        public string name { get; set; }
-        public string game { get; set; }
-        public string title { get; set; }
-
-
-        public StreamObject(string name, string game, string title)
-        {
-            this.name = name;
-            this.game = game;
-            this.title = title;
-        }
     }
 }

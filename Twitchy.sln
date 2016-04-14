@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twitchy", "Twitchy\Twitchy.
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{12E6CFB9-1852-4903-A211-C410C6657698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twitch", "TwitchPlugin\Twitch.csproj", "{7B860C46-B00C-4E64-BC39-C6B882E9EADD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchPlugin", "TwitchPlugin\TwitchPlugin.csproj", "{7B860C46-B00C-4E64-BC39-C6B882E9EADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HitboxPlugin", "HitboxPlugin\HitboxPlugin.csproj", "{C45ACE23-1029-4FFE-80FF-4460C18D2EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,14 @@ Global
 		{7B860C46-B00C-4E64-BC39-C6B882E9EADD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B860C46-B00C-4E64-BC39-C6B882E9EADD}.Release|x86.ActiveCfg = Release|Any CPU
 		{7B860C46-B00C-4E64-BC39-C6B882E9EADD}.Release|x86.Build.0 = Release|Any CPU
+		{C45ACE23-1029-4FFE-80FF-4460C18D2EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C45ACE23-1029-4FFE-80FF-4460C18D2EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C45ACE23-1029-4FFE-80FF-4460C18D2EE5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C45ACE23-1029-4FFE-80FF-4460C18D2EE5}.Debug|x86.Build.0 = Debug|Any CPU
+		{C45ACE23-1029-4FFE-80FF-4460C18D2EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C45ACE23-1029-4FFE-80FF-4460C18D2EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C45ACE23-1029-4FFE-80FF-4460C18D2EE5}.Release|x86.ActiveCfg = Release|Any CPU
+		{C45ACE23-1029-4FFE-80FF-4460C18D2EE5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

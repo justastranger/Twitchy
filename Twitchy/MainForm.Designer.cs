@@ -97,6 +97,7 @@ namespace Twitchy
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Twitchy";
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.ResumeLayout(false);
 
         }

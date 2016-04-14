@@ -132,7 +132,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\HTTP.cs" />
     <Compile Include="api\Plugin.cs" />
+    <Compile Include="api\StreamObject.cs" />
     <Compile Include="ConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
