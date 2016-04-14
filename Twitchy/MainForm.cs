@@ -64,8 +64,12 @@ namespace Twitchy
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            //DataGridView dgv = (DataGridView)tabControl1.SelectedTab.Controls[0];
-            //dgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab != null) ((DataGridView)tabControl1.SelectedTab.Controls[0]).AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
     }
 }

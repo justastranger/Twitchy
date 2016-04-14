@@ -33,8 +33,26 @@ namespace Twitchy
                 if (!plugin.EndsWith(".dll")) continue;
                 Assembly assembly = (Assembly.LoadFile(plugin));
                 Plugin pluginInstance = (Plugin)assembly.CreateInstance(Path.GetFileNameWithoutExtension(plugin));
+                // If null, that means the file name is wrong.
+                if (pluginInstance == null)
+                {
+                    throw new InvalidFileNameException("File name does not match Type name");
+                }
                 plugins.Add(pluginInstance.name, pluginInstance);
             }
         }
+
+        [Serializable]
+        public class InvalidFileNameException : Exception
+        {
+            public InvalidFileNameException() { }
+            public InvalidFileNameException(string message) : base(message) { }
+            public InvalidFileNameException(string message, Exception inner) : base(message, inner) { }
+            protected InvalidFileNameException(
+              System.Runtime.Serialization.SerializationInfo info,
+              System.Runtime.Serialization.StreamingContext context) : base(info, context)
+            { }
+        }
+
     }
 }
