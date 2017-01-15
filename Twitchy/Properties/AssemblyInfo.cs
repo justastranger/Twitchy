@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Twitchy")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Frontend for Streamlink and Twitch")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("justastranger")]
 [assembly: AssemblyProduct("Twitchy")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright ©  2015-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 // Major is any change to the way the program works (new features and such)
 // Minor is any change that does not affect the way the program works (minor refactoring/features), resets to 0 is Major is incremented
 // Patch is a minor bugfix or change not big enough to warrant a Minor bump, resets to 0 if either Major or Minor is incremented
-[assembly: AssemblyVersion("3.3.2")]
-[assembly: AssemblyFileVersion("3.3.2")]
+[assembly: AssemblyVersion("3.3.3")]
+[assembly: AssemblyFileVersion("3.3.3")]
