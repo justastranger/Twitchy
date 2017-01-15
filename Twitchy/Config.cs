@@ -36,7 +36,7 @@ namespace Twitchy
             config["openChatWindow"] = false;
             config["disableTitleUnescaping"] = false;
             config["useCustomLivestreamer"] = false;
-            config["livestreamer"] = @".\ls\livestreamer.exe";
+            config["livestreamer"] = @".\streamlink\Streamlink.exe";
             config["useCustomPlayer"] = false;
             config["player"] = @".\MPC-HC\mpc-hc.exe";
             config["minimizeToTaskbar"] = true;
@@ -120,14 +120,21 @@ namespace Twitchy
             if (config["oauth"] == null)
             {
                 //config["oauth"] = Twitchy.Prompt.ShowDialog(@"Please enter your OAuth token, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
-                AuthorizationWindow bw = new AuthorizationWindow("https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=bdz2mqmz5jcpihdfjic2ofbpew6xzcy&redirect_uri=http://localhost&scope=user_read");
-                bw.Show();
+                //AuthorizationWindow bw = new AuthorizationWindow("https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=bdz2mqmz5jcpihdfjic2ofbpew6xzcy&redirect_uri=http://localhost&scope=user_read");
+                //bw.Show();
+
             }
         }
 
         public static void setOauth(string newToken)
         {
             config["oauth"] = newToken;
+            // OVerwrite the previous config file
+            configFile = File.Open(configPath, FileMode.Create);
+            using (StreamWriter sw = new StreamWriter(configFile))
+            {   // and save our config object to it
+                sw.Write(config.ToString());
+            }
         }
 
         private void Save_Click(object sender, EventArgs e)

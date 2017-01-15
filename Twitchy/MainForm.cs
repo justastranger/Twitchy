@@ -142,7 +142,10 @@ namespace Twitchy
         {
             
             // If the oauth token is null, this obviously won't work, so we'll just abort
-            if (Config.config["oauth"] == null) return;
+            if (Config.config["oauth"] == null)
+            {
+                return;
+            }
 
             ParsedStreams = new List<StreamObject>();
             // Ask Twitch's API nicely if we can see who our user is following

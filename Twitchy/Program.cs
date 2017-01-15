@@ -22,6 +22,7 @@ namespace Twitchy
     {
         public static Form twitchy;
         public static int formCount = 0;
+        static AuthorizationWindow bw;
 
         public static void twitcheroo(){
             twitchy = new MainForm();
@@ -30,6 +31,15 @@ namespace Twitchy
 
         public context(){
             twitcheroo();
+            if (Config.config["oauth"] == null)
+            {
+                bw = new AuthorizationWindow("https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=bdz2mqmz5jcpihdfjic2ofbpew6xzcy&redirect_uri=http://localhost&scope=user_read");
+            }
+        }
+
+        public static void closeAuth()
+        {
+            bw.Hide();
         }
 
         public static void OnFormClosed(object sender, EventArgs e)
