@@ -48,7 +48,6 @@ namespace Twitchy
                 using (StreamWriter sw = new StreamWriter(configFile))
                 {
                     checkOauth();
-                    MessageBox.Show("Saving Config File");
                     sw.Write(config.ToString(Formatting.Indented));
                 }
             }
