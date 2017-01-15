@@ -11,10 +11,11 @@ namespace Twitchy
         
         public AuthorizationWindow(string url)
         {
-            browser = new ChromiumWebBrowser("about:blank");
             InitializeComponent();
-            Controls.Add(browser);
+            Cef.Initialize(new CefSettings());
+            browser = new ChromiumWebBrowser("about:blank");
             browser.AddressChanged += new EventHandler<CefSharp.AddressChangedEventArgs>(addressChanged);
+            Controls.Add(browser);
             browser.Load(url);
         }
 

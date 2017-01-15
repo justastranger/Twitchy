@@ -145,7 +145,7 @@ namespace Twitchy
             ParsedStreams = new List<StreamObject>();
             // Ask Twitch's API nicely if we can see who our user is following
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed");
-            request.Headers.Add("Accept", "application/vnd.twitchtv.v3+json");
+            request.Accept = "application/vnd.twitchtv.v3+json";
             request.Headers.Add("Authorization", "OAuth " + Config.config["oauth"].ToObject<string>());
             JObject jo;
 
