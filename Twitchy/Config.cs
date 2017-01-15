@@ -116,11 +116,18 @@ namespace Twitchy
         public static void checkOauth()
         {   // If we've marked the oauth token as invalid, null the config option for it
             if (!valid) config["oauth"] = null;
-            // If the config option for the oauth token is null, ask for an oauth token
+            // If the config option for the oauth token is null, send users to the authorization page.
             if (config["oauth"] == null)
             {
-                config["oauth"] = Twitchy.Prompt.ShowDialog(@"Please enter your OAuth token, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
+                //config["oauth"] = Twitchy.Prompt.ShowDialog(@"Please enter your OAuth token, you can generate one at http://www.twitchapps.com/tmi/", "No OAuth Saved");
+                AuthorizationWindow bw = new AuthorizationWindow("https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=bdz2mqmz5jcpihdfjic2ofbpew6xzcy&redirect_uri=http://localhost&scope=user_read");
+                bw.Show();
             }
+        }
+
+        public static void setOauth(string newToken)
+        {
+            config["oauth"] = newToken;
         }
 
         private void Save_Click(object sender, EventArgs e)

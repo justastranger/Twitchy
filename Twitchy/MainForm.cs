@@ -98,11 +98,12 @@ namespace Twitchy
                 return;
             }
             Process livestreamer = new Process();
+            //TODO rename these config values since Livestreamer is defunct now
             if (Config.config["useCustomLivestreamer"].ToObject<bool>())
             {
                 livestreamer.StartInfo.FileName = Config.config["livestreamer"].ToString();
             } else {
-                livestreamer.StartInfo.FileName = @".\ls\livestreamer.exe";
+                livestreamer.StartInfo.FileName = @".\streamlink\Streamlink.exe";
             }
             if (Config.config["useCustomPlayer"].ToObject<bool>())
             {
@@ -139,11 +140,13 @@ namespace Twitchy
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Config.checkOauth();
+            //Config.checkOauth();
 
             ParsedStreams = new List<StreamObject>();
             // Ask Twitch's API nicely if we can see who our user is following
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed?oauth_token=" + Config.config["oauth"].ToObject<string>());
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.twitch.tv/kraken/streams/followed");
+            request.Headers.Add("Accept", "application/vnd.twitchtv.v3+json");
+            request.Headers.Add("Authorization", "OAuth " + Config.config["oauth"].ToObject<string>());
             JObject jo;
 
             try

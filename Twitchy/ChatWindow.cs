@@ -6,7 +6,7 @@ namespace Twitchy
 {
     public partial class ChatWindow : Form
     {
-        private ChromiumWebBrowser browser;
+        public ChromiumWebBrowser browser;
         
         public static void ShowChat(string streamer){
             //http://www.twitch.tv/{Streamer}/chat
