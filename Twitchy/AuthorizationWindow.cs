@@ -21,7 +21,10 @@ namespace Twitchy
 
         void initChrome(string url)
         {
-            Cef.Initialize(new CefSettings());
+            if (!Cef.IsInitialized)
+            {
+                Cef.Initialize(new CefSettings());
+            }
             browser = new ChromiumWebBrowser(url);
             browser.AddressChanged += new EventHandler<CefSharp.AddressChangedEventArgs>(addressChanged);
             Controls.Add(browser);
@@ -36,6 +39,7 @@ namespace Twitchy
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             context.OnFormClosed(sender, e);
+            Cef.Shutdown();
         }
 
         private void addressChanged(object sender, AddressChangedEventArgs e)

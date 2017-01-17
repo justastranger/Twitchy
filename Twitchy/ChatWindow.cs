@@ -1,4 +1,5 @@
-﻿using CefSharp.WinForms;
+﻿using CefSharp;
+using CefSharp.WinForms;
 using System;
 using System.Windows.Forms;
 
@@ -18,10 +19,14 @@ namespace Twitchy
 
         public ChatWindow(string url)
         {
-            browser = new ChromiumWebBrowser("about:blank");
             InitializeComponent();
+            if (!Cef.IsInitialized)
+            {
+                Cef.Initialize(new CefSettings());
+            }
+            browser = new ChromiumWebBrowser(url);
             Controls.Add(browser);
-            browser.Load(url);
+            browser.Dock = DockStyle.Fill;
         }
 
         private void Form2_Shown(object sender, EventArgs e)

@@ -162,15 +162,15 @@
     <Compile Include="Settings.cs" />
     <None Include="packages.config" />
     <None Include="Resources\Twitchy.ico" />
-    <None Include="streamlink\README.txt">
+    <Content Include="streamlink\README.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="streamlink\Streamlink.exe">
+    </Content>
+    <Content Include="streamlink\Streamlink.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="streamlink\VERSION.txt">
+    </Content>
+    <Content Include="streamlink\VERSION.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="twitchy.ico" />
     <EmbeddedResource Include="AuthorizationWindow.resx">
       <DependentUpon>AuthorizationWindow.cs</DependentUpon>
@@ -205,12 +205,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="streamlink\LICENSE">
+    <Content Include="streamlink\LICENSE">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="streamlink\streamlinkrc">
+    </Content>
+    <Content Include="streamlink\streamlinkrc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
