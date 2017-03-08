@@ -40,6 +40,7 @@
             this.useCustomPlayerCheckBox = new System.Windows.Forms.CheckBox();
             this.setPlayerButton = new System.Windows.Forms.Button();
             this.minimizeToTaskbarCheckbox = new System.Windows.Forms.CheckBox();
+            this.showConsoleCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // closeAfterLaunchCheckBox
@@ -138,11 +139,23 @@
             this.minimizeToTaskbarCheckbox.UseVisualStyleBackColor = true;
             this.minimizeToTaskbarCheckbox.CheckedChanged += new System.EventHandler(this.minimizeToTaskbarCheckbox_CheckedChanged);
             // 
+            // showConsoleCheckBox
+            // 
+            this.showConsoleCheckBox.AutoSize = true;
+            this.showConsoleCheckBox.Location = new System.Drawing.Point(12, 150);
+            this.showConsoleCheckBox.Name = "showConsoleCheckBox";
+            this.showConsoleCheckBox.Size = new System.Drawing.Size(94, 17);
+            this.showConsoleCheckBox.TabIndex = 10;
+            this.showConsoleCheckBox.Text = "Show Console";
+            this.showConsoleCheckBox.UseVisualStyleBackColor = true;
+            this.showConsoleCheckBox.CheckedChanged += new System.EventHandler(this.showConsoleCheckBox_CheckedChanged);
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.showConsoleCheckBox);
             this.Controls.Add(this.minimizeToTaskbarCheckbox);
             this.Controls.Add(this.setPlayerButton);
             this.Controls.Add(this.useCustomPlayerCheckBox);
@@ -172,5 +185,6 @@
         private System.Windows.Forms.CheckBox useCustomPlayerCheckBox;
         private System.Windows.Forms.Button setPlayerButton;
         private System.Windows.Forms.CheckBox minimizeToTaskbarCheckbox;
+        private System.Windows.Forms.CheckBox showConsoleCheckBox;
     }
 }

@@ -40,6 +40,7 @@ namespace Twitchy
             config["useCustomPlayer"] = false;
             config["player"] = @".\MPC-HC\mpc-hc.exe";
             config["minimizeToTaskbar"] = true;
+            config["showConsole"] = false;
             
             // If our config file doesn't already exist
             if (configFile.Length == 0)
@@ -104,6 +105,7 @@ namespace Twitchy
             useCustomLivestreamerCheckBox.Checked = config["useCustomLivestreamer"].ToObject<bool>();
             useCustomPlayerCheckBox.Checked = config["useCustomPlayer"].ToObject<bool>();
             minimizeToTaskbarCheckbox.Checked = config["minimizeToTaskbar"].ToObject<bool>();
+            showConsoleCheckBox.Checked = config["showConsole"].ToObject<bool>();
         }
 
         private static void AddText(FileStream fs, string value)
@@ -148,6 +150,8 @@ namespace Twitchy
             if (sender != this) { this.Close(); }
         }
 
+        // TODO make this next section nicer
+
         private void closeAfterLaunchCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             config["closeAfterLaunch"] = closeAfterLaunchCheckBox.Checked;
@@ -176,6 +180,11 @@ namespace Twitchy
         private void minimizeToTaskbarCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             config["minimizeToTaskbar"] = minimizeToTaskbarCheckbox.Checked;
+        }
+
+        private void showConsoleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            config["showConsole"] = showConsoleCheckBox.Checked;
         }
 
         private void setLivestreamerButton_Click(object sender, EventArgs e)

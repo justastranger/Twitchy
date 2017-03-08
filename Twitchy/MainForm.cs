@@ -98,20 +98,24 @@ namespace Twitchy
                 return;
             }
             Process livestreamer = new Process();
+            ProcessStartInfo processProps = new ProcessStartInfo();
             //TODO rename these config values since Livestreamer is defunct now
             if (Config.config["useCustomLivestreamer"].ToObject<bool>())
             {
-                livestreamer.StartInfo.FileName = Config.config["livestreamer"].ToString();
+                processProps.FileName = Config.config["livestreamer"].ToString();
             } else {
-                livestreamer.StartInfo.FileName = @".\streamlink\Streamlink.exe";
+                processProps.FileName = @".\streamlink\Streamlink.exe";
             }
             if (Config.config["useCustomPlayer"].ToObject<bool>())
             {
-                livestreamer.StartInfo.Arguments = "-p " + Config.config["player"].ToString() + " twitch.tv/" + Streamer + " best";
+                processProps.Arguments = "-p " + Config.config["player"].ToString() + " twitch.tv/" + Streamer + " best";
             } else {
-                livestreamer.StartInfo.Arguments = "-p " + @".\MPC-HC\mpc-hc.exe" + " twitch.tv/" + Streamer + " best";
+                processProps.Arguments = "-p " + @".\MPC-HC\mpc-hc.exe" + " twitch.tv/" + Streamer + " best";
             }
-            
+            bool sc = Config.config["showConsole"].ToObject<bool>();
+            processProps.UseShellExecute = sc;
+            processProps.CreateNoWindow = !sc;
+            livestreamer.StartInfo = processProps;
             livestreamer.Start();
             if (Config.config["openChatWindow"].ToObject<bool>()) ChatWindow.ShowChat(Streamer);
             if (Config.config["closeAfterLaunch"].ToObject<bool>()) this.Close();
