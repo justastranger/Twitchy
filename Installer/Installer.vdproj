@@ -82,13 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_17E2659E5036B71DFE82CA11D71F49A0"
-        "OwnerKey" = "8:_C7BD4CA6AA9D41BBADF1BE4BA68FF368"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_17E2659E5036B71DFE82CA11D71F49A0"
-        "OwnerKey" = "8:_AB4D2B88696AA0D4DE949D4934B86CA8"
+        "OwnerKey" = "8:_B348F9F9D60241379C5B47D22A9D48A3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -100,7 +94,13 @@
         "Entry"
         {
         "MsmKey" = "8:_17E2659E5036B71DFE82CA11D71F49A0"
-        "OwnerKey" = "8:_B348F9F9D60241379C5B47D22A9D48A3"
+        "OwnerKey" = "8:_AB4D2B88696AA0D4DE949D4934B86CA8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_17E2659E5036B71DFE82CA11D71F49A0"
+        "OwnerKey" = "8:_C7BD4CA6AA9D41BBADF1BE4BA68FF368"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -502,25 +502,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AB4D2B88696AA0D4DE949D4934B86CA8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B348F9F9D60241379C5B47D22A9D48A3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_97F05734D769E9F1D472EBFCBDA8C3C4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F5378CA0D753D66E43A41A3684F0540A"
+        "OwnerKey" = "8:_17E2659E5036B71DFE82CA11D71F49A0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -532,7 +514,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_17E2659E5036B71DFE82CA11D71F49A0"
+        "OwnerKey" = "8:_F5378CA0D753D66E43A41A3684F0540A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_97F05734D769E9F1D472EBFCBDA8C3C4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B348F9F9D60241379C5B47D22A9D48A3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AB4D2B88696AA0D4DE949D4934B86CA8"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -837,11 +837,6 @@
             "AssemblyAsmDisplayName" = "8:CefSharp, Version=53.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_17E2659E5036B71DFE82CA11D71F49A0"
-                    {
-                    "Name" = "8:CefSharp.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CefSharp.dll"
             "TargetName" = "8:"
@@ -1628,11 +1623,6 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_97F05734D769E9F1D472EBFCBDA8C3C4"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
@@ -1759,11 +1749,6 @@
             "AssemblyAsmDisplayName" = "8:CefSharp.BrowserSubprocess.Core, Version=53.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_AB4D2B88696AA0D4DE949D4934B86CA8"
-                    {
-                    "Name" = "8:CefSharp.BrowserSubprocess.Core.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CefSharp.BrowserSubprocess.Core.DLL"
             "TargetName" = "8:"
@@ -1830,11 +1815,6 @@
             "AssemblyAsmDisplayName" = "8:CefSharp.Core, Version=53.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_B76D9BC63447A165E689BEA4DF67719C"
-                    {
-                    "Name" = "8:CefSharp.Core.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CefSharp.Core.dll"
             "TargetName" = "8:"
@@ -2132,11 +2112,6 @@
             "AssemblyAsmDisplayName" = "8:CefSharp.WinForms, Version=53.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_F5378CA0D753D66E43A41A3684F0540A"
-                    {
-                    "Name" = "8:CefSharp.WinForms.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CefSharp.WinForms.dll"
             "TargetName" = "8:"
@@ -2243,15 +2218,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Twitchy"
-        "ProductCode" = "8:{CD7A2205-A08A-40BD-AEC5-2B2F4CE64D1F}"
-        "PackageCode" = "8:{F02A4C30-21FE-42DF-A6C7-5CDBBF998958}"
+        "ProductCode" = "8:{CC4E4FE2-E961-43E8-9F4A-C0517103C765}"
+        "PackageCode" = "8:{0EB01F0E-362A-4ACE-8EDD-10B59B357E06}"
         "UpgradeCode" = "8:{AF216133-F839-4D62-938A-5B33043EB21C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:3.3.4"
+        "ProductVersion" = "8:3.3.5"
         "Manufacturer" = "8:justastranger"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -112,7 +112,9 @@ namespace Twitchy
             } else {
                 processProps.Arguments = "-p " + @".\MPC-HC\mpc-hc.exe" + " twitch.tv/" + Streamer + " best";
             }
+            // Fetch the relevant config value to a local variable
             bool sc = Config.config["showConsole"].ToObject<bool>();
+            // UseShellExecute, when true, causes CreateNoWindow to be ignored and we want CreateNoWindow to be true to hide the console window
             processProps.UseShellExecute = sc;
             processProps.CreateNoWindow = !sc;
             livestreamer.StartInfo = processProps;
