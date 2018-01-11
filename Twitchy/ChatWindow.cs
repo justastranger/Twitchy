@@ -8,6 +8,8 @@ namespace Twitchy
     public partial class ChatWindow : Form
     {
         public ChromiumWebBrowser browser;
+        CefSettings settings = new CefSettings();
+        
         
         public static void ShowChat(string streamer){
             //http://www.twitch.tv/{Streamer}/chat
@@ -22,7 +24,8 @@ namespace Twitchy
             InitializeComponent();
             if (!Cef.IsInitialized)
             {
-                Cef.Initialize(new CefSettings());
+                settings.CachePath = @".\CEFCache";
+                Cef.Initialize(settings);
             }
             browser = new ChromiumWebBrowser(url);
             Controls.Add(browser);
