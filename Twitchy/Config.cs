@@ -60,8 +60,6 @@ namespace Twitchy
                 {
                     // Assign the object
                     tmp = JObject.Parse(sr.ReadToEnd());
-                    // Close the reader
-                    sr.Close();
                 }
                 // And then assign the values of the tmp object to our actual object
                 foreach (KeyValuePair<String, JToken> kvp in tmp)
@@ -78,8 +76,6 @@ namespace Twitchy
                 {
                     // Save the file
                     sw.Write(config.ToString(Formatting.Indented));
-                    // Close the StreamWriter and the FileStream (for good this time)
-                    sw.Close();
                 }
                 // make sure that we have an OAuth token
                 checkOauth();
