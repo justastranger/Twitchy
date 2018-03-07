@@ -837,6 +837,11 @@
             "AssemblyAsmDisplayName" = "8:CefSharp, Version=53.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_17E2659E5036B71DFE82CA11D71F49A0"
+                    {
+                    "Name" = "8:CefSharp.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:CefSharp.dll"
             "TargetName" = "8:"
@@ -1623,6 +1628,11 @@
             "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_97F05734D769E9F1D472EBFCBDA8C3C4"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Newtonsoft.Json.dll"
             "TargetName" = "8:"
@@ -1749,6 +1759,11 @@
             "AssemblyAsmDisplayName" = "8:CefSharp.BrowserSubprocess.Core, Version=53.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_AB4D2B88696AA0D4DE949D4934B86CA8"
+                    {
+                    "Name" = "8:CefSharp.BrowserSubprocess.Core.DLL"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:CefSharp.BrowserSubprocess.Core.DLL"
             "TargetName" = "8:"
@@ -1815,6 +1830,11 @@
             "AssemblyAsmDisplayName" = "8:CefSharp.Core, Version=53.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_B76D9BC63447A165E689BEA4DF67719C"
+                    {
+                    "Name" = "8:CefSharp.Core.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:CefSharp.Core.dll"
             "TargetName" = "8:"
@@ -2112,6 +2132,11 @@
             "AssemblyAsmDisplayName" = "8:CefSharp.WinForms, Version=53.0.1.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_F5378CA0D753D66E43A41A3684F0540A"
+                    {
+                    "Name" = "8:CefSharp.WinForms.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:CefSharp.WinForms.dll"
             "TargetName" = "8:"
@@ -2218,15 +2243,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Twitchy"
-        "ProductCode" = "8:{E4CF2A67-8430-4597-99D9-AED571AF8268}"
-        "PackageCode" = "8:{59B0255A-1D8A-4CB0-9A12-A58618157283}"
+        "ProductCode" = "8:{447922B3-1512-463B-B8D6-793BAF42DAF4}"
+        "PackageCode" = "8:{E45B91EB-3E08-44E8-961A-85D99A7898BB}"
         "UpgradeCode" = "8:{AF216133-F839-4D62-938A-5B33043EB21C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:3.3.6"
+        "ProductVersion" = "8:3.3.7"
         "Manufacturer" = "8:justastranger"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

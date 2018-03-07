@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 // Major is any change to the way the program works (new features and such)
 // Minor is any change that does not affect the way the program works (minor refactoring/features), resets to 0 is Major is incremented
 // Patch is a minor bugfix or change not big enough to warrant a Minor bump, resets to 0 if either Major or Minor is incremented
-[assembly: AssemblyVersion("3.3.6")]
-[assembly: AssemblyFileVersion("3.3.6")]
+[assembly: AssemblyVersion("3.3.7")]
+[assembly: AssemblyFileVersion("3.3.7")]
